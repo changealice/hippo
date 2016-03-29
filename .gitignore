@@ -1,0 +1,17 @@
+WebRoot/WEB-INF/classes/
+WebRoot/WEB-INF/logs/
+WebRoot/test**
+.settings/
+.classpath
+.project
+build/
+bin/
+target/
+logs/
+*.iml
+.idea/
+*.bak
+Thumbs.db
+.DS_Store
+._.DS_Store
+class/
