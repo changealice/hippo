@@ -7,11 +7,13 @@
     <groupId>com.change.hippo</groupId>
     <artifactId>hippo-parent</artifactId>
     <version>1.0-SNAPSHOT</version>
+    <url>https://github.com/changealice/hippo.git</url>
+
+    <packaging>pom</packaging>
+
     <modules>
         <module>hippo-core</module>
         <module>hippo-web</module>
     </modules>
-    <packaging>pom</packaging>
-
 
 </project>
