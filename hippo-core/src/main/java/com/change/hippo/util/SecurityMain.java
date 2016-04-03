@@ -1,10 +1,8 @@
-package com.change.hippo;
+package com.change.hippo.util;
 
 import org.apache.commons.codec.binary.Base64;
 import org.apache.commons.codec.binary.Hex;
 import org.apache.commons.codec.binary.StringUtils;
-
-import java.util.Arrays;
 
 /**
  * Hello world!
