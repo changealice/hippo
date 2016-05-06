@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8"/>
+    <title>Hello React!</title>
+    <script src="../react/build/react.js"></script>
+    <script src="../react/build/react-dom.js"></script>
+    <script src="../react/build/browser.min.js"></script>
+</head>
+<body>
+<div id="example"></div>
+<script type="text/babel">
+
+    var Counter = React.createClass({
+        getInitialState: function () {
+            return {count: 0};
+        },
+        handleClick: function () {
+            this.setState(function () {
+                count:this.state.count + 1;
+            })
+        },
+        render: function () {
+            return (
+                <button onClick={this.handleClick}>
+                Click me,number Of Click {this.state.count}
+                </button>
+            );
+        }
+    });
+
+    ReactDOM.render(
+        <Counter />,
+         document.getElementById('example')
+    );
+</script>
+</body>
+</html>

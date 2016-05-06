@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8"/>
+    <title>Hello React!</title>
+    <script src="../react/build/react.js"></script>
+    <script src="../react/build/react-dom.js"></script>
+    <script src="../react/build/browser.min.js"></script>
+</head>
+<body>
+<div id="example"></div>
+<script>
+
+    //创建p标签组件
+    var HelloApplication = React.createClass({
+        render: function () {
+            var counter = this.props.counter;
+            return React.DOM.p(null, 'Hello World:' + counter);
+        }
+    });
+
+    //创建组件示例
+    var HelloApplicationFactory = React.createFactory(HelloApplication);
+    var counter = 0;
+
+    //定时任务，传递参数counter
+    setInterval(function () {
+        ReactDOM.render(
+                HelloApplicationFactory({counter: counter++}),
+                document.getElementById('example')
+        );
+    }, 14);
+</script>
+</body>
+</html>
