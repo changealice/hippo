@@ -24,7 +24,11 @@ public class HelloWorldService {
         return "Hello " + this.name;
     }
 
-    public String echoAppName(){
+    public String echoAppName() {
         return appName;
+    }
+
+    public void testSpringDevToolReloadClasses() {
+        System.out.println("spring reload class" + this.getClass().getName());
     }
 }
