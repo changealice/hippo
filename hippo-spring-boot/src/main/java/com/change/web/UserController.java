@@ -26,7 +26,7 @@ import static org.springframework.web.bind.annotation.RequestMethod.PUT;
  * Date: 16/5/13
  * Time: 下午4:01
  */
-@RestController
+@RestController("/users")
 public class UserController {
     @Value("${spring.config.name}")
     private String name;
@@ -36,11 +36,6 @@ public class UserController {
 
     @Autowired
     private HelloWorldService helloWorldService;
-
-    @RequestMapping("/")
-    String index() {
-        return "Greetings from Spring Boot!";
-    }
 
     /**
      * 查询用户列表
@@ -88,9 +83,9 @@ public class UserController {
     }
 
     @RequestMapping(value = "/users/{id}", method = DELETE)
-    public ResponseEntity<Boolean> add(@PathVariable("id") Long id) {
+    public ResponseEntity<Boolean> delById(@PathVariable("id") Long id) {
         userRepository.delete(id);
-        return new ResponseEntity<Boolean>(HttpStatus.OK);
+        return new ResponseEntity<Boolean>(true,HttpStatus.OK);
     }
 
     @RequestMapping("/reload")

@@ -23,12 +23,13 @@ import static org.junit.Assert.assertThat;
  * User: change.long
  * Date: 16/5/16
  * Time: 下午2:28
+ * 使用test rest template来模拟请求
  */
 @RunWith(SpringJUnit4ClassRunner.class)
 @SpringApplicationConfiguration(classes = SampleSimpleApplication.class)
 @WebAppConfiguration
 @IntegrationTest({"server.port=0"})
-public class HelloControllerIT {
+public class UserControllerIT {
 
     @Value("${local.server.port}")
     private int port;
