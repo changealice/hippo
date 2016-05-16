@@ -29,5 +29,6 @@ public class StartupCommandLineRunner implements CommandLineRunner {
             throw new ExitException();
         }
         System.out.println("appName:" +  helloWorldService.echoAppName());
+        helloWorldService.testSpringDevToolReloadClasses();
     }
 }
