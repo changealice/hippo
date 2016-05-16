@@ -1,6 +1,7 @@
 package com.change.springboot;
 
 import com.change.SampleSimpleApplication;
+import com.change.domain.User;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -49,4 +50,13 @@ public class UserControllerIT {
         assertThat(response.getBody(), equalTo("Greetings from Spring Boot!"));
     }
 
+    @Test
+    public void testUserController() throws Exception {
+
+    }
+
+    @Test
+    public void testUapLogin(){
+
+    }
 }
