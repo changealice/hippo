@@ -1,4 +1,4 @@
-package com.change.springboot;
+package com.change.web;
 
 import com.change.domain.User;
 import com.change.repository.UserRepository;

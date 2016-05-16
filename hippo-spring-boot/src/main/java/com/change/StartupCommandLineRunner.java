@@ -1,6 +1,6 @@
-package com.change.springboot;
+package com.change;
 
-import com.change.ExitException;
+import com.change.exception.ExitException;
 import com.change.service.HelloWorldService;
 
 import org.slf4j.Logger;

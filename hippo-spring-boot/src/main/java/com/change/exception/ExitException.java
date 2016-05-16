@@ -1,4 +1,4 @@
-package com.change;
+package com.change.exception;
 
 import org.springframework.boot.ExitCodeGenerator;
 

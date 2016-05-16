@@ -1,6 +1,6 @@
 package com.change.config;
 
-import com.change.springboot.StartupCommandLineRunner;
+import com.change.StartupCommandLineRunner;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

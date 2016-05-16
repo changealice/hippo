@@ -1,5 +1,7 @@
 package com.change.springboot;
 
+import com.change.SampleSimpleApplication;
+
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
