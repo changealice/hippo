@@ -28,5 +28,6 @@ public class StartupCommandLineRunner implements CommandLineRunner {
         if (args.length > 0 && args[0].equals("exitcode")) {
             throw new ExitException();
         }
+        System.out.println("appName:" +  helloWorldService.echoAppName());
     }
 }
