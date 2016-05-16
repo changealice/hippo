@@ -2,6 +2,7 @@ package com.change.web;
 
 import com.change.domain.User;
 import com.change.repository.UserRepository;
+import com.change.service.HelloWorldService;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -28,6 +29,9 @@ public class UserController {
     @Autowired
     private UserRepository userRepository;
 
+    @Autowired
+    private HelloWorldService helloWorldService;
+
     @RequestMapping("/")
     String index() {
         return "Greetings from Spring Boot!";
@@ -49,5 +53,11 @@ public class UserController {
     public ResponseEntity<Boolean> add(@PathVariable("id") Long id) {
         userRepository.delete(id);
         return new ResponseEntity<Boolean>(HttpStatus.OK);
+    }
+
+    @RequestMapping("/reload")
+    public ResponseEntity<Boolean> reload() {
+        helloWorldService.testSpringDevToolReloadClasses();
+        return new ResponseEntity<Boolean>(true,HttpStatus.OK);
     }
 }
