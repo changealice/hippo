@@ -1,5 +1,6 @@
 package com.change.web;
 
+import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -12,8 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class HomeController {
 
     @RequestMapping("/")
-    public String index() {
+    public String index(ModelMap modelMap) {
         return "Greetings from Spring Boot!";
     }
-
 }
