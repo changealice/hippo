@@ -24,9 +24,6 @@ public class HelloWorldService {
     @Resource(name = "appName")
     private String appName;
 
-    @PersistenceContext
-    private EntityManager entityManager;
-
     public String getHelloMessage() {
         return "Hello " + this.name;
     }
@@ -39,7 +36,4 @@ public class HelloWorldService {
         System.out.println("spring reload class" + this.getClass().getName());
     }
 
-    public void echoEntityManager() {
-        entityManager.contains(User.class);
-    }
 }
