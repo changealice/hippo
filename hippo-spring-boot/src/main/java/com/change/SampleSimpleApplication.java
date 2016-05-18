@@ -4,11 +4,9 @@ import com.change.config.ImportConfig;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.boot.orm.jpa.EntityScan;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Import;
-import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import org.springframework.scheduling.annotation.EnableScheduling;
 
 import java.util.Arrays;
@@ -21,8 +19,6 @@ import java.util.Arrays;
 
 @SpringBootApplication
 @ComponentScan(basePackages = "com.change")
-@EnableJpaRepositories(basePackages = "com.change.repository")
-@EntityScan(basePackages = "com.change.domain")
 @EnableScheduling
 @Import(value = ImportConfig.class)
 public class SampleSimpleApplication {

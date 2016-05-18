@@ -1,9 +1,13 @@
 package com.change.service;
 
+import com.change.domain.User;
+
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
 import javax.annotation.Resource;
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
 
 /**
  * User: change.long
@@ -31,4 +35,5 @@ public class HelloWorldService {
     public void testSpringDevToolReloadClasses() {
         System.out.println("spring reload class" + this.getClass().getName());
     }
+
 }

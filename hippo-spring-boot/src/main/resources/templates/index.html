@@ -1,10 +1,25 @@
-<!DOCTYPE html>
-<html xmlns:th="http://www.w3.org/1999/xhtml">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
 <head lang="en">
-    <meta charset="UTF-8" />
-    <title>Thymeleaf Demo</title>
+    <meta charset="UTF-8"/>
+    <title th:text="${host}"></title>
 </head>
+<style>
+    .even_css_class {
+        background-color: yellow;
+    }
+
+    .odd_css_class {
+        background-color: blue;
+    }
+</style>
 <body>
-<h1 th:text="${host}">Hello World</h1>
+<table>
+    <tr th:each="user,itrStat: ${users}" th:class="${itrStat.even}? 'even_css_class':'odd_css_class'">
+        <td th:text="${itrStat.index}">序号</td>
+        <td th:text="${user.id}">id</td>
+        <td th:text="${user.userName}">userName</td>
+        <td th:text="${user.password}">password</td>
+    </tr>
+</table>
 </body>
 </html>
