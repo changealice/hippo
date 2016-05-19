@@ -27,6 +27,6 @@ public class SpringTestSampleSimpleApplicationTests {
     public void testContextLoads() throws Exception {
         Assert.assertNotNull(this.ctx);
         Assert.assertTrue(this.ctx.containsBean("helloWorldService"));
-        Assert.assertTrue(this.ctx.containsBean("simpleSampleApplication"));
+        Assert.assertTrue(this.ctx.containsBean("sampleSimpleApplication"));
     }
 }
