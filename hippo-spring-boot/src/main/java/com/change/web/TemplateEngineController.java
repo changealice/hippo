@@ -7,6 +7,10 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import io.swagger.annotations.ApiOperation;
+
+import static org.springframework.web.bind.annotation.RequestMethod.GET;
+
 /**
  * User: change.long
  * Date: 16/5/18
@@ -19,10 +23,11 @@ public class TemplateEngineController {
     @Autowired
     private UserRepository userRepository;
 
-    @RequestMapping("index")
+    @ApiOperation(value = "index",notes = "集成thymeleaf模板引擎")
+    @RequestMapping(value = "index", method = GET)
     public String index(ModelMap modelMap) {
         modelMap.addAttribute("host", "www.change.com");
-        modelMap.addAttribute("users",userRepository.findAll());
+        modelMap.addAttribute("users", userRepository.findAll());
         return "index";
     }
 
