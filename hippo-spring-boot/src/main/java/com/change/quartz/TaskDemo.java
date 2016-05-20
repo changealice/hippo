@@ -24,19 +24,15 @@ public class TaskDemo {
     @Autowired
     private UserRepository userRepository;
 
-
-    public TaskDemo(){
-        logger.info("TaskDemo Starting!");
-    }
     /**
      * 一分钟执行一次
      */
-    @Scheduled(cron = "0 0 1 * * ?")
+    @Scheduled(cron = "0 */1 * * * ?")
     public void doSomething() {
-        logger.info("TaskDemo Running,Time:{}", System.currentTimeMillis());
-        List<User> userList = userRepository.findAll();
-        // something that should execute on weekdays only
-        logger.info("userService findAll User size :{} ", userList.size());
+//        logger.info("TaskDemo Running,Time:{}", System.currentTimeMillis());
+//        List<User> userList = userRepository.findAll();
+//        // something that should execute on weekdays only
+//        logger.info("userService findAll User size:{} ", userList.size());
     }
 
 }
