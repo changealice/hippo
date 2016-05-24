@@ -20,4 +20,11 @@ public class HomeController {
     public String index() {
         return "Greetings from Spring Boot!";
     }
+
+    @ApiOperation(value = "全局异常测试", notes = "全局异常测试")
+    @RequestMapping(value = "/test_global_advice", method = GET)
+    public String exception() {
+        new RuntimeException("error");
+        return null;
+    }
 }

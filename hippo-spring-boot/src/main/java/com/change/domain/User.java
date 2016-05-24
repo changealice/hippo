@@ -27,6 +27,12 @@ public class User implements Serializable {
 
     @Column(name = "PASSWORD")
     private String password;
+
+    /**
+     * 账户标签，例如人民币账户，美元账户，二进制位
+     */
+    @Column(name = "ACCOUNT_OPTIONS")
+    private String accountOptions;
     public Long getId() {
         return id;
     }
