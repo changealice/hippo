@@ -27,21 +27,21 @@ public class AccountOptions {
      */
     private Long options;
 
-    public static void main(String[] args) {
-        AccountOptions accountOptions = new AccountOptions();
-        accountOptions.appendOptions(RMB_ACCOUNT);
-        accountOptions.appendOptions(DOLLAR_ACCOUNT);
-        accountOptions.appendOptions(INTEGRATION_ACCOUNT);
-
-        System.out.println("option value:" + accountOptions.options);
-        accountOptions.removeOptions(RMB_ACCOUNT);
-        accountOptions.removeOptions(INTEGRATION_ACCOUNT);
-        System.out.println("移除第 rmb 位和第 积分,options 的值:" + accountOptions.options);
-
-        System.out.println("是否包含美元账户:" + accountOptions.containOptions(AccountOptions.DOLLAR_ACCOUNT));
-        System.out.println("是否包含人民币账户:" + accountOptions.containOptions(AccountOptions.RMB_ACCOUNT));
-
-    }
+//    public static void main(String[] args) {
+//        AccountOptions accountOptions = new AccountOptions();
+//        accountOptions.appendOptions(RMB_ACCOUNT);
+//        accountOptions.appendOptions(DOLLAR_ACCOUNT);
+//        accountOptions.appendOptions(INTEGRATION_ACCOUNT);
+//
+//        System.out.println("option value:" + accountOptions.options);
+//        accountOptions.removeOptions(RMB_ACCOUNT);
+//        accountOptions.removeOptions(INTEGRATION_ACCOUNT);
+//        System.out.println("移除第 rmb 位和第 积分,options 的值:" + accountOptions.options);
+//
+//        System.out.println("是否包含美元账户:" + accountOptions.containOptions(AccountOptions.DOLLAR_ACCOUNT));
+//        System.out.println("是否包含人民币账户:" + accountOptions.containOptions(AccountOptions.RMB_ACCOUNT));
+//
+//    }
 
     public void appendOptions(long targetProperty) {
         if (null == options) {
