@@ -8,7 +8,23 @@
 
     <artifactId>hippo-spring-boot</artifactId>
 
-
+    <distributionManagement>
+        <repository>
+            <id>releases</id>
+            <name>Release Repository</name>
+            <url>
+                http://121.43.105.38:10012/nexus/content/repositories/releases
+            </url>
+        </repository>
+        <snapshotRepository>
+            <id>snapshots</id>
+            <name>Snapshot Repository</name>
+            <url>
+                http://121.43.105.38:10012/nexus/content/repositories/snapshots
+            </url>
+            <uniqueVersion>true</uniqueVersion>
+        </snapshotRepository>
+    </distributionManagement>
     <!-- Inherit defaults from Spring Boot !-->
     <parent>
         <groupId>org.springframework.boot</groupId>
@@ -102,19 +118,34 @@
 
     </dependencies>
 
-
-    <!-- Package as an executable jar -->
     <build>
         <plugins>
             <plugin>
-                <groupId>org.springframework.boot</groupId>
-                <artifactId>spring-boot-maven-plugin</artifactId>
-                <configuration>
-                    <fork>true</fork>
-                </configuration>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-source-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <id>attach-sources</id>
+                        <goals>
+                            <goal>jar</goal>
+                        </goals>
+                    </execution>
+                </executions>
             </plugin>
         </plugins>
     </build>
+    <!--&lt;!&ndash; Package as an executable jar &ndash;&gt;-->
+    <!--<build>-->
+        <!--<plugins>-->
+            <!--<plugin>-->
+                <!--<groupId>org.springframework.boot</groupId>-->
+                <!--<artifactId>spring-boot-maven-plugin</artifactId>-->
+                <!--<configuration>-->
+                    <!--<fork>true</fork>-->
+                <!--</configuration>-->
+            <!--</plugin>-->
+        <!--</plugins>-->
+    <!--</build>-->
     <properties>
         <java.version>1.6</java.version>
         <tomcat.version>7.0.59</tomcat.version>
