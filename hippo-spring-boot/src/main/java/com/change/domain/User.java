@@ -1,7 +1,11 @@
 package com.change.domain;
 
+import org.hibernate.annotations.Cache;
+import org.hibernate.annotations.CacheConcurrencyStrategy;
+
 import java.io.Serializable;
 
+import javax.persistence.Cacheable;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -15,6 +19,8 @@ import javax.persistence.Table;
  */
 @Entity
 @Table(name = "T_USER")
+@Cacheable(true)
+@Cache(usage = CacheConcurrencyStrategy.READ_WRITE,region = "com.change.domain.User")
 public class User implements Serializable {
 
 
@@ -33,6 +39,7 @@ public class User implements Serializable {
      */
     @Column(name = "ACCOUNT_OPTIONS")
     private String accountOptions;
+
     public Long getId() {
         return id;
     }

@@ -5,9 +5,12 @@ import com.change.domain.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
 import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.jpa.repository.QueryHints;
 import org.springframework.data.repository.query.Param;
 
 import java.util.List;
+
+import javax.persistence.QueryHint;
 
 /**
  * User: change.long
@@ -17,6 +20,7 @@ import java.util.List;
 
 public interface UserRepository extends JpaRepository<User, Long>, JpaSpecificationExecutor<User> {
 
+    @QueryHints({@QueryHint(name = "org.hibernate.cacheable", value = "true")})
     List<User> findByUserName(final String userName);
 
     @Query("from User u where u.userName=:userName")

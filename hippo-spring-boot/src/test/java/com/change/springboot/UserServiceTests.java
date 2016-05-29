@@ -2,6 +2,7 @@ package com.change.springboot;
 
 import com.change.SampleSimpleApplication;
 import com.change.domain.User;
+import com.change.repository.UserRepository;
 import com.change.service.IUserService;
 
 import org.junit.Assert;
@@ -30,6 +31,8 @@ public class UserServiceTests {
     @Resource(name = "userJdbcSupportService")
     private IUserService userJdbcService;
 
+    @Resource
+    private UserRepository userRepository;
 
     @Before
     public void setUp() throws Exception {
@@ -38,6 +41,7 @@ public class UserServiceTests {
     @Test
     public void findByUserNameJPA() throws Exception {
         List<User> list = userJPAService.findByUserName("赵磊");
+        list = userJPAService.findByUserName("赵磊");
         Assert.assertNotNull(list);
     }
 
@@ -48,8 +52,14 @@ public class UserServiceTests {
     }
 
     @Test
-    public void findJPAQuery()throws Exception{
+    public void findJPAQuery() throws Exception {
         List<User> userResult = userJPAService.findByUserName2("赵磊");
         Assert.assertNotNull(userResult);
+    }
+
+    @Test
+    public void findAllEhCacheTests() throws Exception {
+        userRepository.findOne(11l);
+        userRepository.findOne(11l);
     }
 }
