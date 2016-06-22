@@ -1,0 +1,28 @@
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>AngularJS Hello World</title>
+</head>
+<body ng-app="b5xiu" ng-controller="B5xiuController">
+2 + 2 = {{2 + 2}}
+<label>Name :</label>
+<input type="text" ng-model="name" placeholder="Enter your name" ng-click="sayHello()"/>
+
+<input type="text" value="{{name}}" placeholder="mirrors your name "/>
+<h1>Hello <span ng-bind="name"></span></h1>
+
+<h1>Hey {{name}}</h1>
+
+<script src="angular/angular.min.js">
+</script>
+<script>
+    angular.module('b5xiu', [])
+            .controller('B5xiuController', ['$scope','$log', '$location', function ($scope,$log, $location) {
+                $scope.name = 'BLA BLA';
+                $log.log('I am starting');
+                $location.path("/newpath");
+                $scope.sayHello = function(){alert("Hello world")};
+            }]);
+</script>
+</body>
+</html>

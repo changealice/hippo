@@ -1,9 +1,8 @@
 __author__ = 'change'
-
-
 import threading
 from kafka.client import KafkaClient
 from kafka.consumer import SimpleConsumer
+
 
 class Consumer(threading.Thread):
     daemon = True
