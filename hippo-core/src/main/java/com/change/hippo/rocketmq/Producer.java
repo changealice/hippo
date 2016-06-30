@@ -23,7 +23,7 @@ public class Producer {
     public static void main(String[] args) throws MQClientException {
         int concurrency = 10;
         Thread[] threads = new Thread[concurrency];
-        for (int i = 0, len = concurrency; i < len; i++) {
+        for (int i = 0; i < concurrency; i++) {
             int j = i;
             Thread thread = new Thread(() -> {
                 try {
