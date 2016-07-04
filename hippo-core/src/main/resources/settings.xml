@@ -1,0 +1,139 @@
+<settings>
+
+    <pluginGroups>
+        <pluginGroup>org.sonarsource.scanner.maven</pluginGroup>
+    </pluginGroups>
+
+    <servers>
+        <server>
+            <id>releases</id>
+            <username>deployment</username>
+            <password>deployment123</password>
+        </server>
+        <server>
+            <id>snapshots</id>
+            <username>deployment</username>
+            <password>deployment123</password>
+        </server>
+
+        <server>
+            <id>releases</id>
+            <username>admin</username>
+            <password>nexusabcd1234</password>
+        </server>
+        <server>
+            <id>snapshots</id>
+            <username>admin</username>
+            <password>nexusabcd1234</password>
+        </server>
+
+        <server>
+            <id>docker-hub</id>
+            <username>changejava</username>
+            <password>changejava</password>
+            <configuration>
+                <email>changejava@gmail.com</email>
+                <!--<serverId>docker-hub</serverId>-->
+                <!--<registryUrl>https://registry-1.docker.io/v2/</registryUrl>-->
+            </configuration>
+        </server>
+    </servers>
+
+    <profiles>
+        <profile>
+            <id>VPS</id>
+            <repositories>
+                <repository>
+                    <id>snapshots</id>
+                    <name>my personal repo</name>
+                    <url>http://nexus.b5mxiu.com/repository/maven-public/</url>
+                    <releases>
+                        <enabled>true</enabled>
+                        <updatePolicy>never</updatePolicy>
+                    </releases>
+                    <snapshots>
+                        <enabled>
+                            true
+                        </enabled>
+                        <updatePolicy>never</updatePolicy>
+                    </snapshots>
+                </repository>
+
+
+
+            </repositories>
+            <pluginRepositories>
+                <pluginRepository>
+                    <id>plugRepo</id>
+                    <name>my personal plug repo</name>
+                    <url>http://nexus.b5mxiu.com/repository/maven-public/</url>
+                    <releases>
+                        <enabled>true</enabled>
+                        <updatePolicy>never</updatePolicy>
+                    </releases>
+                    <snapshots>
+                        <enabled>true</enabled>
+                        <updatePolicy>never</updatePolicy>
+                    </snapshots>
+                </pluginRepository>
+
+            </pluginRepositories>
+
+        </profile>
+
+
+        <profile>
+            <id>jdk1.6</id>
+            <activation>
+                <jdk>1.6</jdk>
+            </activation>
+            <properties>
+                <maven.compiler.source>1.6</maven.compiler.source>
+                <maven.compiler.target>1.6</maven.compiler.target>
+                <maven.compiler.compilerVersion>1.6</maven.compiler.compilerVersion>
+            </properties>
+        </profile>
+
+        <profile>
+            <id>jdk1.7</id>
+            <activation>
+                <jdk>1.7</jdk>
+            </activation>
+            <properties>
+                <maven.compiler.source>1.7</maven.compiler.source>
+                <maven.compiler.target>1.7</maven.compiler.target>
+                <maven.compiler.compilerVersion>1.7</maven.compiler.compilerVersion>
+            </properties>
+        </profile>
+
+        <profile>
+            <id>jdk1.8</id>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+                <jdk>1.8</jdk>
+            </activation>
+            <properties>
+                <maven.compiler.source>1.8</maven.compiler.source>
+                <maven.compiler.target>1.8</maven.compiler.target>
+                <maven.compiler.compilerVersion>1.8</maven.compiler.compilerVersion>
+            </properties>
+        </profile>
+
+        <profile>
+            <id>sonar</id>
+            <properties>
+                <sonar.jdbc.url>jdbc:mysql://121.43.105.38:3306/sonar?useUnicode=true&amp;characterEncoding=utf8</sonar.jdbc.url>
+                <sonar.jdbc.driver>com.mysql.jdbc.Driver</sonar.jdbc.driver>
+                <sonar.jdbc.username>sonar</sonar.jdbc.username>
+                <sonar.jdbc.password>sonar</sonar.jdbc.password>
+                <sonar.host.url>http://121.43.105.38:10015</sonar.host.url>
+            </properties>
+        </profile>
+
+    </profiles>
+    <activeProfiles>
+        <!--make the profile active all the time -->
+        <activeProfile>VPS</activeProfile>
+    </activeProfiles>
+
+</settings>
