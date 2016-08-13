@@ -63,12 +63,13 @@ public class CuratorTests {
         private final String zkAddress;
         private CuratorFramework client;
 
-        public CuratorUtil(String zkAddress) {
+        public CuratorUtil(String zkAddress) throws InterruptedException {
             this.zkAddress = zkAddress;
             client = CuratorFrameworkFactory
                     .newClient(zkAddress, new ExponentialBackoffRetry(1000, 3));
             client.getCuratorListenable().addListener(new NodeEventListener());
             client.start();
+            client.blockUntilConnected();
         }
 
         public String getZkAddress() {
