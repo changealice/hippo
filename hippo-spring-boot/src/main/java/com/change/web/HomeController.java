@@ -1,5 +1,6 @@
 package com.change.web;
 
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -22,7 +23,7 @@ public class HomeController {
     }
 
     @ApiOperation(value = "全局异常测试", notes = "全局异常测试")
-    @RequestMapping(value = "/test_global_advice", method = GET)
+    @GetMapping(value = "/test_global_advice")
     public String exception() {
         new RuntimeException("error");
         return null;
