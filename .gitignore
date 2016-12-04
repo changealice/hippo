@@ -17,3 +17,6 @@ Thumbs.db
 class/
 log/
 logs/
+.gitignore
+pom.xml
+src/

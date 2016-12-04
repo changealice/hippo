@@ -15,6 +15,7 @@
         <module>hippo-core</module>
         <module>hippo-web</module>
         <module>hippo-spring-boot</module>
+        <module>hippo-eureka</module>
     </modules>
 
     <distributionManagement>
