@@ -1,0 +1,13 @@
+server:
+  port: 18083
+spring:
+  application:
+    name: hippo-config-server
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://github.com/changealice/hippo-config/hippo-config-server
+          search-paths: dev
+          username: changejava@126.com
+          password: change1988

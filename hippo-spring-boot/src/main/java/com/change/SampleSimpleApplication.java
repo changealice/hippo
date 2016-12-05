@@ -1,6 +1,7 @@
 package com.change;
 
 import com.change.config.ImportConfig;
+
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
@@ -22,7 +23,7 @@ import org.springframework.scheduling.annotation.EnableScheduling;
 @EnableHystrixDashboard
 @EnableFeignClients
 @RibbonClient(name = "hippo-spring-boot", configuration = HippoConfiguration.class)
-public class SampleSimpleApplication{
+public class SampleSimpleApplication {
     public static void main(String[] args) {
         SpringApplication.run(SampleSimpleApplication.class, args);
     }
