@@ -21,6 +21,7 @@ public class StartupCommandLineRunner implements CommandLineRunner {
 
     @Autowired
     private HelloWorldService helloWorldService;
+
     @Override
     public void run(String... args) throws Exception {
         System.out.println(helloWorldService.getHelloMessage());
@@ -28,7 +29,7 @@ public class StartupCommandLineRunner implements CommandLineRunner {
         if (args.length > 0 && args[0].equals("exitcode")) {
             throw new ExitException();
         }
-        System.out.println("appName:" +  helloWorldService.echoAppName());
+        logger.info("appName:{}", helloWorldService.echoAppName());
         helloWorldService.testSpringDevToolReloadClasses();
     }
 }

@@ -5,11 +5,9 @@ import com.change.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.GetMapping;
 
 import io.swagger.annotations.ApiOperation;
-
-import static org.springframework.web.bind.annotation.RequestMethod.GET;
 
 /**
  * User: change.long
@@ -23,8 +21,8 @@ public class TemplateEngineController {
     @Autowired
     private UserRepository userRepository;
 
-    @ApiOperation(value = "index",notes = "集成thymeleaf模板引擎")
-    @RequestMapping(value = "index", method = GET)
+    @ApiOperation(value = "index", notes = "集成thymeleaf模板引擎")
+    @GetMapping(value = "index")
     public String index(ModelMap modelMap) {
         modelMap.addAttribute("host", "www.change.com");
         modelMap.addAttribute("users", userRepository.findAll());
