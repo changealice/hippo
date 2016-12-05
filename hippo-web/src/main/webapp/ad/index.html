@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>大话魔域,让你秀</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/bootstrap-table.min.css">
+    <meta name="keywords" content="大话魔域,大话,魔域私服,魔域sf,新开魔域私服,魔域外挂"/>
+    <meta name="description" content="大话魔域,让你秀"/>
+    <meta name="baidu-site-verification" content="kqCXHYtA2V" />
+
+
+</head>
+<body>
+<div class="container">
+    <div id="toolbar">
+        <button id="button" class="btn btn-default">refresh</button>
+    </div>
+    <table id="table"
+           data-toggle="table"
+           data-url="data/top15.json"
+           data-show-refresh="true"
+           data-show-toggle="true"
+           data-height="auto"
+           data-row-style="rowStyle"
+           data-sort-name="yellow"
+           data-sort-order="desc">
+        <thead>
+        <tr>
+            <th data-field="name" data-sortable="name">服务器名</th>
+            <th data-field="ip" data-sortable="ip" data-formatter="ipFormatter">服务器IP</th>
+            <th data-field="start" data-sortable="start">开服时间</th>
+            <th data-field="qq" data-sortable="qq">客服QQ</th>
+            <th data-field="description" data-sortable="description">版本介绍</th>
+            <th data-field="detail" data-sortable="detail" data-formatter="detailFormatter">详细介绍</th>
+        </tr>
+        </thead>
+    </table>
+
+</div>
+<script src="js/jquery.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/tableExport.js"></script>
+<script src="js/jquery.base64.js"></script>
+<script src="js/bootstrap-table.js"></script>
+<script src="js/bootstrap-table-export.js"></script>
+<script>
+    setInterval("myInterval()", 5000);//1000为1秒钟
+    var $table = $('#table');
+    var $button = $('#button');
+    function myInterval() {
+        $table.bootstrapTable('refresh');
+    }
+
+    $(function () {
+        $button.click(function () {
+            $table.bootstrapTable('refresh');
+        });
+    });
+
+    function ipFormatter(value, row, index) {
+        var value = row.ipLink;
+        return '<a href=' + value + '>' + row.ipDesc + '</a>'
+    }
+    function detailFormatter(value, row, index) {
+        var value = row.indexPage;
+        return '<a target="_blank" href=' + value + '>' + row.actionText + '</a>'
+    }
+
+    function rowStyle(row, index) {
+        var classes = ['danger'];
+
+        if (row.yellow) {
+            return {
+                classes: classes[0]
+            };
+        }
+        return {};
+    }
+</script>
+</body>
+</html>

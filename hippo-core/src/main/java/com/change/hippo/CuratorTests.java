@@ -4,6 +4,12 @@ import com.google.common.base.Preconditions;
 import com.google.common.base.Strings;
 import com.google.common.collect.Lists;
 import com.google.common.collect.Maps;
+
+import com.alibaba.fastjson.JSON;
+import com.bill99.thunder.config.ReferenceConfig;
+import com.bill99.thunder.serializer.JDKSerializer;
+import com.change.hippo.rpc.frame.SerializationUtil;
+
 import org.apache.curator.framework.CuratorFramework;
 import org.apache.curator.framework.CuratorFrameworkFactory;
 import org.apache.curator.framework.api.CuratorEvent;
@@ -20,7 +26,6 @@ import org.slf4j.LoggerFactory;
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
-import java.util.concurrent.TimeUnit;
 
 /**
  * User: change.long
@@ -31,31 +36,35 @@ public class CuratorTests {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(CuratorTests.class);
 
-    private final static String ZK_ADDRESS = "127.0.0.1:2181,127.0.0.1:2182,127.0.0.1:2183";
+    private final static String ZK_ADDRESS = "192.168.65.196:2181";
 
     public static void main(String[] args) throws Exception {
         CuratorUtil curatorUtil = new CuratorUtil(ZK_ADDRESS);
-        curatorUtil.createNode("/change/test1", "test1");
-        curatorUtil.createNode("/change/test1/test1", "/change/test/test1");
+        byte[] bytes = curatorUtil.getClient().getData().forPath("/Thunder/reference/app-ma-mgw-auth/com.bill99.seashell.domain.paymentsetting.service.PaymentTypeSettingSvc");
 
-        curatorUtil.updateNode("/change/test1", "test3Updated");
-
-
-        List<String> list = curatorUtil.listChildren("/change");
-        list.forEach(System.out::println);
-
-
-        Map<String, String> map = curatorUtil.listChildrenDetail("/change");
-
-        map.entrySet().forEach(entry -> System.out.println(entry.getKey() + "=>" + entry.getValue()));
-
-//        curatorUtil.deleteNode("/change");
-
-        curatorUtil.addWatch("/change", true);
-
-        curatorUtil.updateNode("/change/test1", "test3Updated");
-
-        TimeUnit.SECONDS.sleep(600);
+        ReferenceConfig deserialize = JDKSerializer.deserialize(bytes);
+        System.out.println("ReferenceConfig=" + JSON.toJSONString(deserialize));
+//        curatorUtil.createNode("/change/test1", "test1");
+//        curatorUtil.createNode("/change/test1/test1", "/change/test/test1");
+//
+//        curatorUtil.updateNode("/change/test1", "test3Updated");
+//
+//
+//        List<String> list = curatorUtil.listChildren("/change");
+//        list.forEach(System.out::println);
+//
+//
+//        Map<String, String> map = curatorUtil.listChildrenDetail("/change");
+//
+//        map.entrySet().forEach(entry -> System.out.println(entry.getKey() + "=>" + entry.getValue()));
+//
+////        curatorUtil.deleteNode("/change");
+//
+//        curatorUtil.addWatch("/change", true);
+//
+//        curatorUtil.updateNode("/change/test1", "test3Updated");
+//
+//        TimeUnit.SECONDS.sleep(600);
         curatorUtil.destory();
     }
 

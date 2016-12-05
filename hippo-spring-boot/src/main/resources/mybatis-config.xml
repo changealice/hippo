@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+    <!--数据库的字段名到pojo类的属性名的自动映射-->
+    <settings>
+        <setting name="useColumnLabel" value="true"/>
+        <setting name="mapUnderscoreToCamelCase" value="true"/>
+
+        <!-- 查询时,开启二级缓存 测试发现二级缓存比不开启缓存还要慢，等待压测试,因为redis缓存连接数的问题-->
+        <setting name="cacheEnabled" value="false"/>
+        <!-- 全局启用或禁用延迟加载。当禁用时，所有关联对象都会即时加载。 -->
+        <setting name="lazyLoadingEnabled" value="false"/>
+        <setting name="aggressiveLazyLoading" value="true"/>
+
+        <!-- 配置默认的执行器。SIMPLE 执行器没有什么特别之处。REUSE 执行器重用预处理语句。BATCH 执行器重用语句和批量更新        -->
+        <setting name="defaultExecutorType" value="REUSE"/>
+    </settings>
+</configuration>
