@@ -17,3 +17,11 @@ security:
 spring:
   application:
     name: hippo-eureka
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://github.com/changealice/hippo-config
+          search-paths: dev
+#          username: changejava@126.com
+#          password: change1988

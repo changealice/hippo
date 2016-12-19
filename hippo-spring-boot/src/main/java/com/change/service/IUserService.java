@@ -16,4 +16,10 @@ public interface IUserService {
 
     List<User> findByUserName2(final String userName);
 
+    User save(User user);
+
+    void delete(Long id);
+
+    User findOne(User user);
+
 }

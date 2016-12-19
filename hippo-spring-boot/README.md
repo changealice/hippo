@@ -6,3 +6,6 @@
 ## Maven插件运行
 - mvn sprint-boot:run
 - 设置环境变量 export MAVEN_OPTS=-Xmx1024m -XX:MaxPermSize=128M -Djava.security.egd=file:/dev/./urandom
+
+
+#spring config server集成

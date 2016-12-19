@@ -1,0 +1,5 @@
+#注意这里是bootstrap.yml而不是appliction.yml,因为bootstrap.yml会在应用启动之前读取,而spring.cloud.config.uri会影响应用启动
+spring:
+  cloud:
+    config:
+      uri: http://localhost:8888

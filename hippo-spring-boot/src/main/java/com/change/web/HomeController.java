@@ -6,6 +6,7 @@ import com.netflix.appinfo.InstanceInfo;
 import com.netflix.discovery.EurekaClient;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.cloud.client.ServiceInstance;
 import org.springframework.cloud.client.discovery.DiscoveryClient;
 import org.springframework.http.ResponseEntity;
@@ -42,6 +43,12 @@ public class HomeController {
     @Autowired
     private UserFeignClient userFeignClient;
 
+    @Value("${lucky-word:default}") String luckyWord;
+
+    @RequestMapping("/lucky-word")
+    public String showLuckyWord() {
+        return "The lucky word is: " + luckyWord;
+    }
 
     @ApiOperation(value = "首页", notes = "测试首页")
     @RequestMapping(value = "/", method = GET)

@@ -8,4 +8,8 @@
     <cache name="com.change.domain.User" maxElementsInMemory="300" eternal="false"
            timeToIdleSeconds="5000" timeToLiveSeconds="5000" overflowToDisk="false">
     </cache>
+
+    <cache name="users" maxElementsInMemory="300" eternal="false"
+           timeToIdleSeconds="5000" timeToLiveSeconds="5000" overflowToDisk="false">
+    </cache>
 </ehcache>

@@ -2,18 +2,23 @@ package com.change.springboot.mongo;
 
 import com.change.SampleSimpleApplication;
 import com.change.domain.Comments;
+import com.change.domain.Location;
 import com.change.repository.CommentsRepository;
 
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.SpringApplicationConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.util.StopWatch;
 
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.LinkedHashSet;
 import java.util.List;
 
 /**
@@ -26,6 +31,7 @@ import java.util.List;
 public class CommentsRepositoryTests {
 
 
+    private static final Logger LOGGER = LoggerFactory.getLogger(CommentsRepositoryTests.class);
     @Autowired
     private CommentsRepository commentsRepository;
 
@@ -37,14 +43,32 @@ public class CommentsRepositoryTests {
     @Test
     public void testComments() throws Exception {
 
+        Location location1 = new Location("上海", 2008);
+        Location location2 = new Location("合肥", 2010);
+        Location location3 = new Location("广州", 2001);
+        Location location4 = new Location("马鞍山", 2012);
+
+        Collection<Location> locations = new LinkedHashSet<Location>();
+        locations.add(location1);
+        locations.add(location2);
+        locations.add(location3);
+        locations.add(location4);
         //创建三个评论
         List<Comments> commentsList = new ArrayList<Comments>(3);
-        commentsList.add(new Comments(1L, "1", "太好了", 123L));
-        commentsList.add(new Comments(2L, "2", "太棒了", 123L));
-        commentsList.add(new Comments(3L, "3", "棒棒哒", 123L));
+        Comments comments1 = new Comments(1L, "1", "太好了", 123L);
+        comments1.setLocations(locations);
+        commentsList.add(comments1);
+        Comments comments2 = new Comments(2L, "2", "太棒了", 123L);
+        commentsList.add(comments2);
+        comments2.setLocations(locations);
+        Comments comments3 = new Comments(3L, "3", "棒棒哒", 123L);
+        commentsList.add(comments3);
+        comments3.setLocations(locations);
         commentsRepository.save(commentsList);
 
-        Assert.assertEquals(3, commentsRepository.findAll().size());
+        commentsList = commentsRepository.findAll();
+        LOGGER.info("commentsList={}", commentsList);
+        Assert.assertEquals(3, commentsList.size());
 
         //删除一个，验证总数
         Comments c1 = commentsRepository.findOne(1l);

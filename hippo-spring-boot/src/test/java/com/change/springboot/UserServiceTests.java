@@ -5,6 +5,7 @@ import com.change.domain.User;
 import com.change.repository.UserRepository;
 import com.change.service.IUserService;
 
+import org.apache.commons.lang.math.RandomUtils;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
@@ -61,5 +62,17 @@ public class UserServiceTests {
     public void findAllEhCacheTests() throws Exception {
         userRepository.findOne(11l);
         userRepository.findOne(11l);
+    }
+
+    @Test
+    public void userJPAServiceSave() throws Exception {
+        User user = new User();
+        user.setUserName(RandomUtils.nextLong() + "");
+        user.setPassword(RandomUtils.nextLong() + "");
+        user = userJPAService.save(user);
+
+        User userCache = userJPAService.findOne(user);
+
+        userJPAService.delete(user.getId());
     }
 }
