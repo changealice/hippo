@@ -2,6 +2,7 @@ package com.change.config;
 
 import com.change.runnner.DiscoveryClientRunner;
 import com.change.runnner.MyBatisCommandRunner;
+import com.change.runnner.RabbitMQCommandLineRunner;
 import com.change.runnner.StartupCommandLineRunner;
 
 import org.springframework.cloud.client.loadbalancer.LoadBalanced;
@@ -31,6 +32,11 @@ public class ApplicationConfig {
     public DiscoveryClientRunner discoveryClientRunner() {
         return new DiscoveryClientRunner();
     }
+    @Bean
+    public RabbitMQCommandLineRunner rabbitMQCommandLineRunner(){
+        return new RabbitMQCommandLineRunner();
+    }
+
 
     @Bean
     @LoadBalanced

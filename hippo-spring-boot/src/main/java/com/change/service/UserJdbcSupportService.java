@@ -62,4 +62,19 @@ public class UserJdbcSupportService implements IUserService {
     public List<User> findByUserName2(String userName) {
         return null;
     }
+
+    @Override
+    public User save(User user) {
+        return null;
+    }
+
+    @Override
+    public void delete(Long id) {
+
+    }
+
+    @Override
+    public User findOne(User user) {
+        return null;
+    }
 }

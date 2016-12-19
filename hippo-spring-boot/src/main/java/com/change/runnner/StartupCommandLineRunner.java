@@ -1,5 +1,6 @@
 package com.change.runnner;
 
+import com.change.config.AuthorSettings;
 import com.change.exception.ExitException;
 import com.change.service.HelloWorldService;
 
@@ -22,6 +23,9 @@ public class StartupCommandLineRunner implements CommandLineRunner {
     @Autowired
     private HelloWorldService helloWorldService;
 
+    @Autowired
+    private AuthorSettings authorSettings;
+
     @Override
     public void run(String... args) throws Exception {
         System.out.println(helloWorldService.getHelloMessage());
@@ -31,5 +35,6 @@ public class StartupCommandLineRunner implements CommandLineRunner {
         }
         logger.info("appName:{}", helloWorldService.echoAppName());
         helloWorldService.testSpringDevToolReloadClasses();
+        logger.info("authorSettings={}", authorSettings);
     }
 }

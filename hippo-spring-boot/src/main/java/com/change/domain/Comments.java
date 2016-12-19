@@ -1,6 +1,11 @@
 package com.change.domain;
 
 import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
+import org.springframework.data.mongodb.core.mapping.Field;
+
+import java.util.Collection;
+import java.util.LinkedHashSet;
 
 /**
  * User: change.long
@@ -8,6 +13,7 @@ import org.springframework.data.annotation.Id;
  * Time: 下午5:10
  * 评论数据
  */
+@Document
 public class Comments {
 
 
@@ -19,6 +25,9 @@ public class Comments {
     private String comment;
 
     private Long productId;
+
+    @Field("locations")
+    private Collection<Location> locations = new LinkedHashSet<Location>();
 
 
     public Comments(Long id, String orderId, String comment, Long productId) {
@@ -58,5 +67,24 @@ public class Comments {
 
     public void setProductId(Long productId) {
         this.productId = productId;
+    }
+
+    public Collection<Location> getLocations() {
+        return locations;
+    }
+
+    public void setLocations(Collection<Location> locations) {
+        this.locations = locations;
+    }
+
+    @Override
+    public String toString() {
+        return "Comments{" +
+                "id=" + id +
+                ", orderId='" + orderId + '\'' +
+                ", comment='" + comment + '\'' +
+                ", productId=" + productId +
+                ", locations=" + locations +
+                '}';
     }
 }
