@@ -218,34 +218,9 @@
     <build>
         <plugins>
             <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-source-plugin</artifactId>
-                <executions>
-                    <execution>
-                        <id>attach-sources</id>
-                        <goals>
-                            <goal>jar</goal>
-                        </goals>
-                    </execution>
-                </executions>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
             </plugin>
         </plugins>
     </build>
-    <!--&lt;!&ndash; Package as an executable jar &ndash;&gt;-->
-    <!--<build>-->
-    <!--<plugins>-->
-    <!--<plugin>-->
-    <!--<groupId>org.springframework.boot</groupId>-->
-    <!--<artifactId>spring-boot-maven-plugin</artifactId>-->
-    <!--<configuration>-->
-    <!--<fork>true</fork>-->
-    <!--</configuration>-->
-    <!--</plugin>-->
-    <!--</plugins>-->
-    <!--</build>-->
-    <properties>
-        <java.version>1.8</java.version>
-        <tomcat.version>7.0.59</tomcat.version>
-        <quartz.version>2.1.4</quartz.version>
-    </properties>
 </project>
