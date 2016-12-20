@@ -14,9 +14,7 @@
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <java.version>1.8</java.version>
-        <maven-compiler-plugin.version>3.5.1</maven-compiler-plugin.version>
         <kafka-clients.version>0.9.0.1</kafka-clients.version>
-        <tomcat.version>7.0.59</tomcat.version>
         <quartz.version>2.1.4</quartz.version>
     </properties>
 
@@ -103,7 +101,6 @@
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-compiler-plugin</artifactId>
-                    <version>${maven-compiler-plugin.version}</version>
                     <configuration>
                         <source>${java.version}</source>
                         <target>${java.version}</target>

@@ -3,11 +3,12 @@ server:
 eureka:
   instance:
     preferIpAddress: true
+    hostname: discovery.99bill.com
   client:
     registerWithEureka: false
     fetchRegistry: false
     serviceUrl:
-          defaultZone: http://user:password123@localhost:${server.port}/eureka
+          defaultZone: http://user:password123@${eureka.instance.hostname}:${server.port}/eureka
 security:
   basic:
     enabled: true
