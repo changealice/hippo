@@ -10,7 +10,7 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import org.springframework.boot.test.SpringApplicationConfiguration;
+import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import java.util.List;
@@ -23,7 +23,7 @@ import javax.annotation.Resource;
  * Time: 下午3:12
  */
 @RunWith(SpringJUnit4ClassRunner.class)
-@SpringApplicationConfiguration(SampleSimpleApplication.class)
+@SpringBootTest(classes = SampleSimpleApplication.class)
 public class UserServiceTests {
 
     @Resource(name = "userJPASupportService")

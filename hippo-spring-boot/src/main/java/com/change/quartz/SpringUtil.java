@@ -15,6 +15,7 @@ public class SpringUtil {
     static final SpringUtil springUtil = new SpringUtil();
     static ApplicationContext ctx;
 
+    @SuppressWarnings("unchecked")
     public static <T> T getBean(String name) {
         return (T) ctx.getBean(name);
     }
