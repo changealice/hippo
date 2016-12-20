@@ -1,20 +1,14 @@
 server:
-  port: 8761
+  port: 8761  # 指定该Eureka实例的端口
 eureka:
   instance:
     preferIpAddress: true
-    hostname: discovery.99bill.com
+    hostname: discovery1.99bill.com # 指定该Eureka实例的主机名
   client:
     registerWithEureka: false
     fetchRegistry: false
     serviceUrl:
-          defaultZone: http://user:password123@${eureka.instance.hostname}:${server.port}/eureka
-security:
-  basic:
-    enabled: true
-  user:
-    name: user
-    password: password123
+          defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka
 spring:
   application:
     name: hippo-eureka

@@ -1,0 +1,27 @@
+---
+spring:
+  profiles: peer1.99bill.com                             # 指定profile=peer1
+  application:
+      name: hippo-eureka-clusted-peer1
+server:
+  port: 8761
+eureka:
+  instance:
+    hostname: peer1.99bill.com                        # 指定当profile=peer1时，主机名
+  client:
+    serviceUrl:
+      defaultZone: http://peer2.99bill.com:8762/eureka/      # 将自己注册到peer2这个Eureka上面去
+
+---
+spring:
+  profiles: peer2.99bill.com
+  application:
+    name: hippo-eureka-clusted-peer2
+server:
+  port: 8762
+eureka:
+  instance:
+    hostname: peer2.99bill.com
+  client:
+    serviceUrl:
+      defaultZone: http://peer1.99bill.com:8761/eureka/  #将自己注册到peer1这个Eureka上面去

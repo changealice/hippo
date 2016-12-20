@@ -12,3 +12,7 @@ com.change.spring.cloud.HippoEurekaApplication
 #打开浏览器
 http://localhost:8761 
 输入用户名/密码 user/password123
+#手动指定properties
+$ java -jar myproject.jar --spring.config.location=classpath:/default.properties,classpath:/override.properties
+
+spring.profiles.active=dev,hsqldb
