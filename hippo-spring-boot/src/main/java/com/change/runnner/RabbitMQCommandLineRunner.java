@@ -28,7 +28,7 @@ public class RabbitMQCommandLineRunner implements CommandLineRunner {
     @Override
     public void run(String... args) throws Exception {
 
-        for (int i = 0; i < 10000; i++) {
+        for (int i = 0; i < 1; i++) {
             InetAddress localHost = Inet4Address.getLocalHost();
             rabbitTemplate.convertAndSend("my-queue", "来之rabbit MQ问候" + i + localHost);
             TimeUnit.SECONDS.sleep(1);

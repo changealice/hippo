@@ -12,7 +12,7 @@ import org.junit.runner.RunWith;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.SpringApplicationConfiguration;
+import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.util.StopWatch;
 
@@ -27,7 +27,7 @@ import java.util.List;
  * Time: 下午5:16
  */
 @RunWith(SpringJUnit4ClassRunner.class)
-@SpringApplicationConfiguration(classes = SampleSimpleApplication.class)
+@SpringBootTest(classes = SampleSimpleApplication.class)
 public class CommentsRepositoryTests {
 
 
