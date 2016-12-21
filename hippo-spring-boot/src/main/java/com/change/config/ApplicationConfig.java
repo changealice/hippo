@@ -32,7 +32,7 @@ public class ApplicationConfig {
     public DiscoveryClientRunner discoveryClientRunner() {
         return new DiscoveryClientRunner();
     }
-    @Bean
+//    @Bean
     public RabbitMQCommandLineRunner rabbitMQCommandLineRunner(){
         return new RabbitMQCommandLineRunner();
     }
