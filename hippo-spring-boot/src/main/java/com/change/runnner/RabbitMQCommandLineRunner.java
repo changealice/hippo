@@ -1,5 +1,8 @@
 package com.change.runnner;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.amqp.AmqpException;
 import org.springframework.amqp.core.Queue;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,6 +20,8 @@ import java.util.concurrent.TimeUnit;
  */
 public class RabbitMQCommandLineRunner implements CommandLineRunner {
 
+    private static final Logger logger = LoggerFactory.getLogger(RabbitMQCommandLineRunner.class);
+
     @Autowired
     private RabbitTemplate rabbitTemplate;
 
@@ -30,7 +35,11 @@ public class RabbitMQCommandLineRunner implements CommandLineRunner {
 
         for (int i = 0; i < 1; i++) {
             InetAddress localHost = Inet4Address.getLocalHost();
-            rabbitTemplate.convertAndSend("my-queue", "来之rabbit MQ问候" + i + localHost);
+            try {
+                rabbitTemplate.convertAndSend("my-queue", "来之rabbit MQ问候" + i + localHost);
+            } catch (AmqpException e) {
+                logger.error(e.getMessage(),e);
+            }
             TimeUnit.SECONDS.sleep(1);
         }
     }

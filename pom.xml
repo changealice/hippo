@@ -25,6 +25,7 @@
         <module>hippo-spring-boot</module>
         <module>hippo-eureka</module>
         <module>hippo-config-server</module>
+        <module>hippo-spring-boot-consumer-ribbon</module>
     </modules>
 
     <parent>
@@ -67,27 +68,6 @@
     </dependencyManagement>
 
     <build>
-
-        <plugins>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-source-plugin</artifactId>
-                <executions>
-                    <execution>
-                        <id>attach-sources</id>
-                        <goals>
-                            <goal>jar</goal>
-                        </goals>
-                    </execution>
-                </executions>
-            </plugin>
-
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-deploy-plugin</artifactId>
-            </plugin>
-        </plugins>
-
         <pluginManagement>
             <plugins>
                 <plugin>
