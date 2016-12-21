@@ -23,6 +23,11 @@ public class RibbonService {
     @Autowired
     private RestTemplate restTemplate;
 
+    /**
+     * 使用@HystrixCommand注解指定当该方法发生异常时调用的方法
+     * @param id id
+     * @return 通过id查询到的用户
+     */
     @HystrixCommand(fallbackMethod = "fallback")
     public User findById(Long id) {
         return restTemplate.getForObject("http://hippo-spring-boot/users/" + id, User.class);

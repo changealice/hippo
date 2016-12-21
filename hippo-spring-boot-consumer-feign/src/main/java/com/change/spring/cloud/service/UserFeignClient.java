@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
  * Date: 2016/12/21
  * Time: 下午2:57
  */
-@FeignClient(name = "hippo-spring-boot")
+@FeignClient(name = "hippo-spring-boot", fallback = HystrixClientFallback.class)
 public interface UserFeignClient {
 
     @RequestMapping("/users/{id}")
