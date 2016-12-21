@@ -26,6 +26,7 @@
         <module>hippo-eureka</module>
         <module>hippo-config-server</module>
         <module>hippo-spring-boot-consumer-ribbon</module>
+        <module>hippo-spring-boot-consumer-feign</module>
     </modules>
 
     <parent>

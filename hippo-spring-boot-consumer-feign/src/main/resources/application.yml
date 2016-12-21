@@ -1,0 +1,11 @@
+spring:
+  application:
+    name: hippo-spring-boot-consumer-feign
+server:
+  port: 18084
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://discovery1.99bill.com:8761/eureka/
+  instance:
+    preferIpAddress: true
