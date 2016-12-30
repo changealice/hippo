@@ -6,7 +6,6 @@ import com.netflix.appinfo.InstanceInfo;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
-import org.springframework.web.bind.annotation.PathVariable;
 
 /**
  * User: change.long@99bill.com
@@ -19,10 +18,10 @@ public class HystrixClientFallback implements UserFeignClient {
     private static final Logger LOGGER = LoggerFactory.getLogger(HystrixClientFallback.class);
 
     @Override
-    public User findById(@PathVariable("id") Long id) {
+    public User findById(Long id) {
         LOGGER.info("Feign findById 异常发生，进入fallback方法，接收的参数 id={}", id);
         User user = new User();
-        user.setId(-1L);
+        user.setId(id);
         user.setUserName("Feign default username");
         user.setPassword("123");
         return user;
