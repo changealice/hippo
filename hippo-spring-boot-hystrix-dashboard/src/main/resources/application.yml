@@ -1,0 +1,11 @@
+spring:
+  application:
+    name: hippo-spring-boot-hystrix-dashboard
+server:
+  port: 18085
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://discovery1.99bill.com:8761/eureka/
+  instance:
+    preferIpAddress: true

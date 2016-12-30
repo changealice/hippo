@@ -27,6 +27,8 @@
         <module>hippo-config-server</module>
         <module>hippo-spring-boot-consumer-ribbon</module>
         <module>hippo-spring-boot-consumer-feign</module>
+        <module>hippo-spring-boot-hystrix-dashboard</module>
+        <module>hippo-spring-boot-hystrix-turbine</module>
     </modules>
 
     <parent>
