@@ -1,0 +1,10 @@
+spring:
+  application:
+    name: hippo-spring-boot-zuul
+server:
+  port: 18087
+  client:
+    serviceUrl:
+      defaultZone: http://discovery1.99bill.com:8761/eureka/
+  instance:
+    preferIpAddress: true
