@@ -8,3 +8,7 @@ server:
       defaultZone: http://discovery1.99bill.com:8761/eureka/
   instance:
     preferIpAddress: true
+zuul:
+  routes:
+#    ignoredServices: '*'  In this example, all services are ignored except "hippo-spring-boot".
+    hippo-spring-boot: my-hippo-spring-boot/**

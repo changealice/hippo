@@ -1,6 +1,6 @@
 package com.change.springboot;
 
-import com.change.SampleSimpleApplication;
+import com.change.HippoSpringBootServerApplication;
 
 import org.junit.Assert;
 import org.junit.Before;
@@ -20,7 +20,7 @@ import javax.sql.DataSource;
  * Time: 下午3:52
  */
 @RunWith(SpringJUnit4ClassRunner.class)
-@SpringApplicationConfiguration(SampleSimpleApplication.class)
+@SpringApplicationConfiguration(HippoSpringBootServerApplication.class)
 public class DataSourceTests {
 
 

@@ -1,6 +1,6 @@
 package com.change.springboot.mongo;
 
-import com.change.SampleSimpleApplication;
+import com.change.HippoSpringBootServerApplication;
 import com.change.domain.Comments;
 import com.change.domain.Location;
 import com.change.repository.CommentsRepository;
@@ -27,7 +27,7 @@ import java.util.List;
  * Time: 下午5:16
  */
 @RunWith(SpringJUnit4ClassRunner.class)
-@SpringBootTest(classes = SampleSimpleApplication.class)
+@SpringBootTest(classes = HippoSpringBootServerApplication.class)
 public class CommentsRepositoryTests {
 
 

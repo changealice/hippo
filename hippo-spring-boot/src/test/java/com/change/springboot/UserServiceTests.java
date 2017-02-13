@@ -1,6 +1,6 @@
 package com.change.springboot;
 
-import com.change.SampleSimpleApplication;
+import com.change.HippoSpringBootServerApplication;
 import com.change.domain.User;
 import com.change.repository.UserRepository;
 import com.change.service.IUserService;
@@ -23,7 +23,7 @@ import javax.annotation.Resource;
  * Time: 下午3:12
  */
 @RunWith(SpringJUnit4ClassRunner.class)
-@SpringBootTest(classes = SampleSimpleApplication.class)
+@SpringBootTest(classes = HippoSpringBootServerApplication.class)
 public class UserServiceTests {
 
     @Resource(name = "userJPASupportService")
