@@ -1,14 +1,14 @@
 package com.change.config;
 
 import org.springframework.cache.CacheManager;
-import org.springframework.cache.annotation.EnableCaching;
 import org.springframework.cache.ehcache.EhCacheCacheManager;
 import org.springframework.cache.ehcache.EhCacheManagerFactoryBean;
 import org.springframework.cache.interceptor.KeyGenerator;
 import org.springframework.cache.interceptor.SimpleKeyGenerator;
 import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Configuration;
 import org.springframework.core.io.ClassPathResource;
+
+import java.util.UUID;
 
 /**
  * User: change.long
@@ -16,8 +16,8 @@ import org.springframework.core.io.ClassPathResource;
  * Time: 下午10:49
  */
 
-@Configuration
-@EnableCaching
+//@Configuration
+//@EnableCaching
 public class CachingConfig {
 
     @Bean
@@ -36,6 +36,8 @@ public class CachingConfig {
         EhCacheManagerFactoryBean ehCacheManagerFactoryBean = new EhCacheManagerFactoryBean();
         ehCacheManagerFactoryBean.setConfigLocation(new ClassPathResource("ehcache.xml"));
         ehCacheManagerFactoryBean.setShared(true);
+        ehCacheManagerFactoryBean.setAcceptExisting(true);
+        ehCacheManagerFactoryBean.setCacheManagerName(UUID.randomUUID().toString());
         return ehCacheManagerFactoryBean;
     }
 }

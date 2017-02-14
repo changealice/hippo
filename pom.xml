@@ -30,6 +30,8 @@
         <module>hippo-spring-boot-hystrix-dashboard</module>
         <module>hippo-spring-boot-hystrix-turbine</module>
         <module>hippo-spring-boot-zuul</module>
+        <module>hippo-spring-boot-zuul-regex-mapper</module>
+        <module>hippo-spring-boot-v1</module>
     </modules>
 
     <parent>

@@ -3,12 +3,39 @@ spring:
     name: hippo-spring-boot-zuul
 server:
   port: 18087
+eureka:
   client:
     serviceUrl:
       defaultZone: http://discovery1.99bill.com:8761/eureka/
   instance:
-    preferIpAddress: true
+    instance-id: ${spring.application.name}:${spring.cloud.client.ipAddress}:${spring.application.instance_id:${server.port}}
+    prefer-ip-address: true
 zuul:
   routes:
+#   1：
 #    ignoredServices: '*'  In this example, all services are ignored except "hippo-spring-boot".
-    hippo-spring-boot: my-hippo-spring-boot/**
+#    hippo-spring-boot: my-hippo-spring-boot/**
+
+#   2：
+#This means that http calls to "/myusers" get forwarded to the "users_service" service.
+#The route has to have a "path" which can be specified as an ant-style pattern, so "/myusers/*" only matches one level,
+#but "/myusers/**" matches hierarchically.
+   hippo-spring-boot:
+         path: /my-hippo-spring-boot/**
+         serviceId: hippo-spring-boot
+
+#   3：
+#The location of the backend can be specified as either a "serviceId"
+#(for a service from discovery) or a "url" (for a physical location), e.g.
+    #hippo-spring-boot:
+     #     path: /my-hippo-spring-boot/**
+      #    url: http://10.11.17.176:18087/hippo-spring-boot
+
+ribbon:
+  eureka:
+    enabled: true
+hippo-spring-boot: #这边是serviceId
+  ribbon:
+    listOfServers: http://10.11.17.176:18082,http://10.11.17.176:18081
+
+
