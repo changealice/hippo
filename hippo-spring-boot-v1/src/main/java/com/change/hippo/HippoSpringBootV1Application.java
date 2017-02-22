@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class HippoSpringBootV1Application {
 
-    @Value("${lucky-word:default}")
+    @Value("${lucky-word:default_v1}")
     String luckyWord;
 
     public static void main(String[] args) {
