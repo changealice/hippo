@@ -1,0 +1,17 @@
+spring:
+  application:
+    name: hippo-spring-boot-sidecar
+server:
+  port: 8070
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://discovery1.99bill.com:8761/eureka/
+  instance:
+    instance-id: ${spring.application.name}:${spring.cloud.client.ipAddress}:${spring.application.instance_id:${server.port}}
+    prefer-ip-address: true
+sidecar:
+    health-uri: http://localhost:8060/health.json
+  port: 8060
+
+

@@ -1,7 +1,6 @@
 package com.change.springboot;
 
-import com.change.SampleSimpleApplication;
-import com.change.domain.User;
+import com.change.HippoSpringBootServerApplication;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -27,7 +26,7 @@ import static org.junit.Assert.assertThat;
  * 使用test rest template来模拟请求
  */
 @RunWith(SpringJUnit4ClassRunner.class)
-@SpringBootTest(classes = SampleSimpleApplication.class)
+@SpringBootTest(classes = HippoSpringBootServerApplication.class)
 @WebAppConfiguration
 @IntegrationTest({"server.port=0"})
 public class UserControllerIT {

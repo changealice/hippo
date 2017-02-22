@@ -29,6 +29,10 @@
         <module>hippo-spring-boot-consumer-feign</module>
         <module>hippo-spring-boot-hystrix-dashboard</module>
         <module>hippo-spring-boot-hystrix-turbine</module>
+        <module>hippo-spring-boot-zuul</module>
+        <module>hippo-spring-boot-zuul-regex-mapper</module>
+        <module>hippo-spring-boot-v1</module>
+        <module>hippo-spring-boot-sidebar</module>
     </modules>
 
     <parent>

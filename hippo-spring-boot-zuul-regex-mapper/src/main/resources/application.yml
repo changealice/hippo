@@ -1,0 +1,17 @@
+spring:
+  application:
+    name: hippo-spring-boot-zuul-regex-mapper
+server:
+  port: 18088
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://discovery1.99bill.com:8761/eureka/
+  instance:
+    instance-id: ${spring.application.name}:${spring.cloud.client.ipAddress}:${spring.application.instance_id:${server.port}}
+    prefer-ip-address: true
+logging:
+  level:
+    com.netflix: debug
+
+

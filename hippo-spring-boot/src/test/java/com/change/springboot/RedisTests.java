@@ -1,6 +1,6 @@
 package com.change.springboot;
 
-import com.change.SampleSimpleApplication;
+import com.change.HippoSpringBootServerApplication;
 import com.change.domain.User;
 
 import org.junit.Assert;
@@ -19,7 +19,7 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
  * Time: 下午5:33
  */
 @RunWith(SpringJUnit4ClassRunner.class)
-@SpringApplicationConfiguration(SampleSimpleApplication.class)
+@SpringApplicationConfiguration(HippoSpringBootServerApplication.class)
 public class RedisTests {
 
     @Autowired

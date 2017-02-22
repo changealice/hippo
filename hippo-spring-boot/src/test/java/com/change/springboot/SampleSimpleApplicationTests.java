@@ -1,6 +1,6 @@
 package com.change.springboot;
 
-import com.change.SampleSimpleApplication;
+import com.change.HippoSpringBootServerApplication;
 
 import org.junit.Assert;
 import org.junit.Rule;
@@ -20,20 +20,20 @@ public class SampleSimpleApplicationTests {
 
     @Test
     public void testDefaultSettings() throws Exception {
-        SampleSimpleApplication.main(new String[0]);
+        HippoSpringBootServerApplication.main(new String[0]);
         String output = this.outputCapture.toString();
         Assert.assertTrue(output.contains("Hello change"));
     }
 
     @Test
     public void testCommandLineOverrides() throws Exception {
-        SampleSimpleApplication.main(new String[]{"--name=Jim"});
+        HippoSpringBootServerApplication.main(new String[]{"--name=Jim"});
         String output = this.outputCapture.toString();
         Assert.assertTrue(output.contains("Hello Jim"));
     }
 
     @Test
     public void testCommandLineOverridesWithExceptions() {
-        SampleSimpleApplication.main(new String[]{"exitcode"});
+        HippoSpringBootServerApplication.main(new String[]{"exitcode"});
     }
 }

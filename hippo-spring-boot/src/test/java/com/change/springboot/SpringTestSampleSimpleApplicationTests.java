@@ -1,6 +1,6 @@
 package com.change.springboot;
 
-import com.change.SampleSimpleApplication;
+import com.change.HippoSpringBootServerApplication;
 
 import org.junit.Assert;
 import org.junit.Test;
@@ -16,7 +16,7 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
  * Time: 下午4:36
  */
 @RunWith(SpringJUnit4ClassRunner.class)
-@SpringBootTest(classes = SampleSimpleApplication.class)
+@SpringBootTest(classes = HippoSpringBootServerApplication.class)
 public class SpringTestSampleSimpleApplicationTests {
 
     @Autowired
@@ -27,6 +27,6 @@ public class SpringTestSampleSimpleApplicationTests {
     public void testContextLoads() throws Exception {
         Assert.assertNotNull(this.ctx);
         Assert.assertTrue(this.ctx.containsBean("helloWorldService"));
-        Assert.assertTrue(this.ctx.containsBean("sampleSimpleApplication"));
+        Assert.assertTrue(this.ctx.containsBean("hippoSpringBootServerApplication"));
     }
 }

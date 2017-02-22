@@ -25,8 +25,8 @@ import org.springframework.scheduling.annotation.EnableScheduling;
 @EnableFeignClients
 @EnableZuulProxy
 @RibbonClient(name = "hippo-spring-boot", configuration = HippoConfiguration.class)
-public class SampleSimpleApplication {
+public class HippoSpringBootServerApplication {
     public static void main(String[] args) {
-        SpringApplication.run(SampleSimpleApplication.class, args);
+        SpringApplication.run(HippoSpringBootServerApplication.class, args);
     }
 }

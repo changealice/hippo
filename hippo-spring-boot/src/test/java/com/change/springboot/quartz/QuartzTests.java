@@ -1,6 +1,6 @@
 package com.change.springboot.quartz;
 
-import com.change.SampleSimpleApplication;
+import com.change.HippoSpringBootServerApplication;
 import com.change.quartz.HelloJob;
 import com.change.quartz.QuartzUtils;
 
@@ -21,7 +21,7 @@ import java.util.Map;
  * Time: 下午2:31
  */
 @RunWith(SpringJUnit4ClassRunner.class)
-@SpringApplicationConfiguration(classes = SampleSimpleApplication.class)
+@SpringApplicationConfiguration(classes = HippoSpringBootServerApplication.class)
 public class QuartzTests {
 
     private static final Logger logger = LoggerFactory.getLogger(QuartzUtils.class);
