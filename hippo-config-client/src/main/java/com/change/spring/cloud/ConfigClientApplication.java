@@ -15,7 +15,7 @@ public class ConfigClientApplication {
     private String profile;
 
     @GetMapping("/profile")
-    public String getLuckyWord() {
+    public String profile() {
         return profile;
     }
 

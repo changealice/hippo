@@ -2,7 +2,7 @@ spring:
   cloud:
     config:
       uri: http://localhost:8080
-      label: master  # 当config server的后端存储是Git时，默认就是master
       profile: dev
+      label: master
   application:
-      name: hippo-config-client
+      name: foobar

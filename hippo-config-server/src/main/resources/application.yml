@@ -6,5 +6,6 @@ spring:
       server:
         git:
           uri: https://github.com/changealice/hippo-config
+#          uri: file://${user.home}/hippo-config
   application:
     name: hippo-config-server
