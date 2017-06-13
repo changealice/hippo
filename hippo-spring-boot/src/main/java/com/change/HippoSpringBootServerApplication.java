@@ -27,6 +27,11 @@ import org.springframework.scheduling.annotation.EnableScheduling;
 @RibbonClient(name = "hippo-spring-boot", configuration = HippoConfiguration.class)
 public class HippoSpringBootServerApplication {
     public static void main(String[] args) {
+        ClassLoader classLoader = HippoSpringBootServerApplication.class.getClassLoader();
+        while (classLoader != null) {
+            System.out.println(classLoader.getClass().getName());
+            classLoader = classLoader.getParent();
+        }
         SpringApplication.run(HippoSpringBootServerApplication.class, args);
     }
 }

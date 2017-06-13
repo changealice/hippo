@@ -45,7 +45,7 @@ public class HomeController {
 
     @Value("${lucky-word:default}") String luckyWord;
 
-    @RequestMapping("/lucky-word")
+    @RequestMapping("/lucky-word/")
     public String showLuckyWord() {
         return "The lucky word is: " + luckyWord;
     }
