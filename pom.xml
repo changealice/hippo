@@ -33,6 +33,8 @@
         <module>hippo-spring-boot-zuul-regex-mapper</module>
         <module>hippo-spring-boot-v1</module>
         <module>hippo-spring-boot-sidebar</module>
+        <module>hippo-config-client</module>
+        <module>hippo-spring-boot-kotlin</module>
     </modules>
 
     <parent>
