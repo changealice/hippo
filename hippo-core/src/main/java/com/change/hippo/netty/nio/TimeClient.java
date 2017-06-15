@@ -5,7 +5,7 @@ package com.change.hippo.netty.nio;
  * Date: 2017/5/31
  * Time: 下午5:56
  */
-public class TimeServer {
+public class TimeClient {
 
 
     public static void main(String[] args) {
@@ -17,9 +17,9 @@ public class TimeServer {
             }
         }
 
-        //启动多路复用时间服务器客户端
-        MultiplexerTimeServer multiplexerTimeServer = new MultiplexerTimeServer(port);
+        //启动多路复用时间服务器
+        MultiplexerTimeClientHandler multiplexerTimeClientHandler = new MultiplexerTimeClientHandler("127.0.0.1",port);
 
-        new Thread(multiplexerTimeServer,"NIO-MultiplexerTimeServer-001").start();
+        new Thread(multiplexerTimeClientHandler,"NIO-MultiplexerTimeClient-001").start();
     }
 }

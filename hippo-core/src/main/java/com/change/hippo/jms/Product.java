@@ -1,10 +1,10 @@
 package com.change.hippo.jms;
 
+import java.io.Serializable;
+
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
-
-import java.io.Serializable;
 
 /**
  * User: change.long

@@ -8,7 +8,6 @@ import com.google.common.collect.Maps;
 import com.alibaba.fastjson.JSON;
 import com.bill99.thunder.config.ReferenceConfig;
 import com.bill99.thunder.serializer.JDKSerializer;
-import com.change.hippo.rpc.frame.SerializationUtil;
 
 import org.apache.curator.framework.CuratorFramework;
 import org.apache.curator.framework.CuratorFrameworkFactory;
