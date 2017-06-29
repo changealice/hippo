@@ -34,7 +34,7 @@ public class RpcClient extends SimpleChannelInboundHandler<RpcResponse> {
         this.port = port;
     }
 
-    @Override
+//    @Override
     protected void channelRead0(ChannelHandlerContext ctx, RpcResponse response) throws Exception {
         this.response = response;
         synchronized (obj) {
@@ -78,5 +78,10 @@ public class RpcClient extends SimpleChannelInboundHandler<RpcResponse> {
         } finally {
             group.shutdownGracefully();
         }
+    }
+
+    @Override
+    protected void messageReceived(ChannelHandlerContext ctx, RpcResponse msg) throws Exception {
+
     }
 }
