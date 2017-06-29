@@ -1,7 +1,7 @@
 package com.change.hippo.rmi;
 
-import com.change.hippo.rpc.frame.Constants;
 import com.change.hippo.rmi.service.impl.HelloServiceImpl;
+import com.change.hippo.rpc.frame.Constants;
 
 import org.apache.zookeeper.CreateMode;
 import org.apache.zookeeper.KeeperException;

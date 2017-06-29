@@ -1,11 +1,12 @@
 package com.change.hippo.jms;
 
-import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jms.core.JmsTemplate;
 import org.springframework.stereotype.Component;
 
 import java.io.Serializable;
+
+import lombok.extern.slf4j.Slf4j;
 
 /**
  * User: change.long

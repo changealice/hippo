@@ -1,10 +1,10 @@
 package com.change.hippo.lombok;
 
-import lombok.Cleanup;
-
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
+
+import lombok.Cleanup;
 
 /**
  * User: change.long

@@ -2,11 +2,12 @@ package com.change.hippo;
 
 import com.change.hippo.dto.UserDto;
 import com.change.hippo.model.User;
-import ma.glasnost.orika.MapperFacade;
-import ma.glasnost.orika.impl.DefaultMapperFactory;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import ma.glasnost.orika.MapperFacade;
+import ma.glasnost.orika.impl.DefaultMapperFactory;
 
 /**
  * User: change.long Date: 16/6/14 Time: 上午9:47

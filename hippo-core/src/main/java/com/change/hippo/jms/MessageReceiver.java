@@ -1,11 +1,12 @@
 package com.change.hippo.jms;
 
-import lombok.extern.slf4j.Slf4j;
 import org.springframework.jms.support.converter.MessageConverter;
 
 import javax.jms.JMSException;
 import javax.jms.Message;
 import javax.jms.MessageListener;
+
+import lombok.extern.slf4j.Slf4j;
 
 /**
  * User: change.long

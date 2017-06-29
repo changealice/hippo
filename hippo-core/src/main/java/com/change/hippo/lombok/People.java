@@ -1,9 +1,13 @@
 package com.change.hippo.lombok;
 
-import lombok.*;
-import lombok.extern.slf4j.Slf4j;
-
 import java.io.Serializable;
+
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.EqualsAndHashCode;
+import lombok.NoArgsConstructor;
+import lombok.ToString;
+import lombok.extern.slf4j.Slf4j;
 
 /**
  * User: change.long
