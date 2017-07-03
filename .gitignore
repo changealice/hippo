@@ -1,9 +1,3 @@
 # Created by .ignore support plugin (hsz.mobi)
 logs/
 log/
-hippo-spring-boot-kotlin/src/main/resources/static/
-hippo-spring-boot-kotlin/src/main/resources/templates/
-hippo-spring-boot-kotlin/src/test/kotlin/
-hippo-spring-boot/src/main/resources/META-INF/
-hippo-spring-boot/src/main/resources/public/
-hippo-web/src/main/resources/

@@ -21,55 +21,30 @@ public final class SubscribeRespProto {
      */
     int getSubReqId();
 
-    // required string userName = 2;
+    // required int32 respCode = 2;
     /**
-     * <code>required string userName = 2;</code>
+     * <code>required int32 respCode = 2;</code>
      */
-    boolean hasUserName();
+    boolean hasRespCode();
     /**
-     * <code>required string userName = 2;</code>
+     * <code>required int32 respCode = 2;</code>
      */
-    java.lang.String getUserName();
-    /**
-     * <code>required string userName = 2;</code>
-     */
-    com.google.protobuf.ByteString
-        getUserNameBytes();
+    int getRespCode();
 
-    // optional string productName = 3;
+    // optional string desc = 3;
     /**
-     * <code>optional string productName = 3;</code>
+     * <code>optional string desc = 3;</code>
      */
-    boolean hasProductName();
+    boolean hasDesc();
     /**
-     * <code>optional string productName = 3;</code>
+     * <code>optional string desc = 3;</code>
      */
-    java.lang.String getProductName();
+    java.lang.String getDesc();
     /**
-     * <code>optional string productName = 3;</code>
-     */
-    com.google.protobuf.ByteString
-        getProductNameBytes();
-
-    // repeated string address = 4;
-    /**
-     * <code>repeated string address = 4;</code>
-     */
-    java.util.List<java.lang.String>
-    getAddressList();
-    /**
-     * <code>repeated string address = 4;</code>
-     */
-    int getAddressCount();
-    /**
-     * <code>repeated string address = 4;</code>
-     */
-    java.lang.String getAddress(int index);
-    /**
-     * <code>repeated string address = 4;</code>
+     * <code>optional string desc = 3;</code>
      */
     com.google.protobuf.ByteString
-        getAddressBytes(int index);
+        getDescBytes();
   }
   /**
    * Protobuf type {@code netty.SubscribeResp}
@@ -127,22 +102,14 @@ public final class SubscribeRespProto {
               subReqId_ = input.readInt32();
               break;
             }
-            case 18: {
+            case 16: {
               bitField0_ |= 0x00000002;
-              userName_ = input.readBytes();
+              respCode_ = input.readInt32();
               break;
             }
             case 26: {
               bitField0_ |= 0x00000004;
-              productName_ = input.readBytes();
-              break;
-            }
-            case 34: {
-              if (!((mutable_bitField0_ & 0x00000008) == 0x00000008)) {
-                address_ = new com.google.protobuf.LazyStringArrayList();
-                mutable_bitField0_ |= 0x00000008;
-              }
-              address_.add(input.readBytes());
+              desc_ = input.readBytes();
               break;
             }
           }
@@ -153,9 +120,6 @@ public final class SubscribeRespProto {
         throw new com.google.protobuf.InvalidProtocolBufferException(
             e.getMessage()).setUnfinishedMessage(this);
       } finally {
-        if (((mutable_bitField0_ & 0x00000008) == 0x00000008)) {
-          address_ = new com.google.protobuf.UnmodifiableLazyStringList(address_);
-        }
         this.unknownFields = unknownFields.build();
         makeExtensionsImmutable();
       }
@@ -204,63 +168,36 @@ public final class SubscribeRespProto {
       return subReqId_;
     }
 
-    // required string userName = 2;
-    public static final int USERNAME_FIELD_NUMBER = 2;
-    private java.lang.Object userName_;
+    // required int32 respCode = 2;
+    public static final int RESPCODE_FIELD_NUMBER = 2;
+    private int respCode_;
     /**
-     * <code>required string userName = 2;</code>
+     * <code>required int32 respCode = 2;</code>
      */
-    public boolean hasUserName() {
+    public boolean hasRespCode() {
       return ((bitField0_ & 0x00000002) == 0x00000002);
     }
     /**
-     * <code>required string userName = 2;</code>
+     * <code>required int32 respCode = 2;</code>
      */
-    public java.lang.String getUserName() {
-      java.lang.Object ref = userName_;
-      if (ref instanceof java.lang.String) {
-        return (java.lang.String) ref;
-      } else {
-        com.google.protobuf.ByteString bs = 
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        if (bs.isValidUtf8()) {
-          userName_ = s;
-        }
-        return s;
-      }
-    }
-    /**
-     * <code>required string userName = 2;</code>
-     */
-    public com.google.protobuf.ByteString
-        getUserNameBytes() {
-      java.lang.Object ref = userName_;
-      if (ref instanceof java.lang.String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        userName_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
+    public int getRespCode() {
+      return respCode_;
     }
 
-    // optional string productName = 3;
-    public static final int PRODUCTNAME_FIELD_NUMBER = 3;
-    private java.lang.Object productName_;
+    // optional string desc = 3;
+    public static final int DESC_FIELD_NUMBER = 3;
+    private java.lang.Object desc_;
     /**
-     * <code>optional string productName = 3;</code>
+     * <code>optional string desc = 3;</code>
      */
-    public boolean hasProductName() {
+    public boolean hasDesc() {
       return ((bitField0_ & 0x00000004) == 0x00000004);
     }
     /**
-     * <code>optional string productName = 3;</code>
+     * <code>optional string desc = 3;</code>
      */
-    public java.lang.String getProductName() {
-      java.lang.Object ref = productName_;
+    public java.lang.String getDesc() {
+      java.lang.Object ref = desc_;
       if (ref instanceof java.lang.String) {
         return (java.lang.String) ref;
       } else {
@@ -268,63 +205,32 @@ public final class SubscribeRespProto {
             (com.google.protobuf.ByteString) ref;
         java.lang.String s = bs.toStringUtf8();
         if (bs.isValidUtf8()) {
-          productName_ = s;
+          desc_ = s;
         }
         return s;
       }
     }
     /**
-     * <code>optional string productName = 3;</code>
+     * <code>optional string desc = 3;</code>
      */
     public com.google.protobuf.ByteString
-        getProductNameBytes() {
-      java.lang.Object ref = productName_;
+        getDescBytes() {
+      java.lang.Object ref = desc_;
       if (ref instanceof java.lang.String) {
         com.google.protobuf.ByteString b = 
             com.google.protobuf.ByteString.copyFromUtf8(
                 (java.lang.String) ref);
-        productName_ = b;
+        desc_ = b;
         return b;
       } else {
         return (com.google.protobuf.ByteString) ref;
       }
-    }
-
-    // repeated string address = 4;
-    public static final int ADDRESS_FIELD_NUMBER = 4;
-    private com.google.protobuf.LazyStringList address_;
-    /**
-     * <code>repeated string address = 4;</code>
-     */
-    public java.util.List<java.lang.String>
-        getAddressList() {
-      return address_;
-    }
-    /**
-     * <code>repeated string address = 4;</code>
-     */
-    public int getAddressCount() {
-      return address_.size();
-    }
-    /**
-     * <code>repeated string address = 4;</code>
-     */
-    public java.lang.String getAddress(int index) {
-      return address_.get(index);
-    }
-    /**
-     * <code>repeated string address = 4;</code>
-     */
-    public com.google.protobuf.ByteString
-        getAddressBytes(int index) {
-      return address_.getByteString(index);
     }
 
     private void initFields() {
       subReqId_ = 0;
-      userName_ = "";
-      productName_ = "";
-      address_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+      respCode_ = 0;
+      desc_ = "";
     }
     private byte memoizedIsInitialized = -1;
     public final boolean isInitialized() {
@@ -335,7 +241,7 @@ public final class SubscribeRespProto {
         memoizedIsInitialized = 0;
         return false;
       }
-      if (!hasUserName()) {
+      if (!hasRespCode()) {
         memoizedIsInitialized = 0;
         return false;
       }
@@ -350,13 +256,10 @@ public final class SubscribeRespProto {
         output.writeInt32(1, subReqId_);
       }
       if (((bitField0_ & 0x00000002) == 0x00000002)) {
-        output.writeBytes(2, getUserNameBytes());
+        output.writeInt32(2, respCode_);
       }
       if (((bitField0_ & 0x00000004) == 0x00000004)) {
-        output.writeBytes(3, getProductNameBytes());
-      }
-      for (int i = 0; i < address_.size(); i++) {
-        output.writeBytes(4, address_.getByteString(i));
+        output.writeBytes(3, getDescBytes());
       }
       getUnknownFields().writeTo(output);
     }
@@ -373,20 +276,11 @@ public final class SubscribeRespProto {
       }
       if (((bitField0_ & 0x00000002) == 0x00000002)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeBytesSize(2, getUserNameBytes());
+          .computeInt32Size(2, respCode_);
       }
       if (((bitField0_ & 0x00000004) == 0x00000004)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeBytesSize(3, getProductNameBytes());
-      }
-      {
-        int dataSize = 0;
-        for (int i = 0; i < address_.size(); i++) {
-          dataSize += com.google.protobuf.CodedOutputStream
-            .computeBytesSizeNoTag(address_.getByteString(i));
-        }
-        size += dataSize;
-        size += 1 * getAddressList().size();
+          .computeBytesSize(3, getDescBytes());
       }
       size += getUnknownFields().getSerializedSize();
       memoizedSerializedSize = size;
@@ -506,12 +400,10 @@ public final class SubscribeRespProto {
         super.clear();
         subReqId_ = 0;
         bitField0_ = (bitField0_ & ~0x00000001);
-        userName_ = "";
+        respCode_ = 0;
         bitField0_ = (bitField0_ & ~0x00000002);
-        productName_ = "";
+        desc_ = "";
         bitField0_ = (bitField0_ & ~0x00000004);
-        address_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-        bitField0_ = (bitField0_ & ~0x00000008);
         return this;
       }
 
@@ -547,17 +439,11 @@ public final class SubscribeRespProto {
         if (((from_bitField0_ & 0x00000002) == 0x00000002)) {
           to_bitField0_ |= 0x00000002;
         }
-        result.userName_ = userName_;
+        result.respCode_ = respCode_;
         if (((from_bitField0_ & 0x00000004) == 0x00000004)) {
           to_bitField0_ |= 0x00000004;
         }
-        result.productName_ = productName_;
-        if (((bitField0_ & 0x00000008) == 0x00000008)) {
-          address_ = new com.google.protobuf.UnmodifiableLazyStringList(
-              address_);
-          bitField0_ = (bitField0_ & ~0x00000008);
-        }
-        result.address_ = address_;
+        result.desc_ = desc_;
         result.bitField0_ = to_bitField0_;
         onBuilt();
         return result;
@@ -577,24 +463,12 @@ public final class SubscribeRespProto {
         if (other.hasSubReqId()) {
           setSubReqId(other.getSubReqId());
         }
-        if (other.hasUserName()) {
-          bitField0_ |= 0x00000002;
-          userName_ = other.userName_;
-          onChanged();
+        if (other.hasRespCode()) {
+          setRespCode(other.getRespCode());
         }
-        if (other.hasProductName()) {
+        if (other.hasDesc()) {
           bitField0_ |= 0x00000004;
-          productName_ = other.productName_;
-          onChanged();
-        }
-        if (!other.address_.isEmpty()) {
-          if (address_.isEmpty()) {
-            address_ = other.address_;
-            bitField0_ = (bitField0_ & ~0x00000008);
-          } else {
-            ensureAddressIsMutable();
-            address_.addAll(other.address_);
-          }
+          desc_ = other.desc_;
           onChanged();
         }
         this.mergeUnknownFields(other.getUnknownFields());
@@ -606,7 +480,7 @@ public final class SubscribeRespProto {
           
           return false;
         }
-        if (!hasUserName()) {
+        if (!hasRespCode()) {
           
           return false;
         }
@@ -665,243 +539,109 @@ public final class SubscribeRespProto {
         return this;
       }
 
-      // required string userName = 2;
-      private java.lang.Object userName_ = "";
+      // required int32 respCode = 2;
+      private int respCode_ ;
       /**
-       * <code>required string userName = 2;</code>
+       * <code>required int32 respCode = 2;</code>
        */
-      public boolean hasUserName() {
+      public boolean hasRespCode() {
         return ((bitField0_ & 0x00000002) == 0x00000002);
       }
       /**
-       * <code>required string userName = 2;</code>
+       * <code>required int32 respCode = 2;</code>
        */
-      public java.lang.String getUserName() {
-        java.lang.Object ref = userName_;
-        if (!(ref instanceof java.lang.String)) {
-          java.lang.String s = ((com.google.protobuf.ByteString) ref)
-              .toStringUtf8();
-          userName_ = s;
-          return s;
-        } else {
-          return (java.lang.String) ref;
-        }
+      public int getRespCode() {
+        return respCode_;
       }
       /**
-       * <code>required string userName = 2;</code>
+       * <code>required int32 respCode = 2;</code>
        */
-      public com.google.protobuf.ByteString
-          getUserNameBytes() {
-        java.lang.Object ref = userName_;
-        if (ref instanceof String) {
-          com.google.protobuf.ByteString b = 
-              com.google.protobuf.ByteString.copyFromUtf8(
-                  (java.lang.String) ref);
-          userName_ = b;
-          return b;
-        } else {
-          return (com.google.protobuf.ByteString) ref;
-        }
-      }
-      /**
-       * <code>required string userName = 2;</code>
-       */
-      public Builder setUserName(
-          java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00000002;
-        userName_ = value;
+      public Builder setRespCode(int value) {
+        bitField0_ |= 0x00000002;
+        respCode_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>required string userName = 2;</code>
+       * <code>required int32 respCode = 2;</code>
        */
-      public Builder clearUserName() {
+      public Builder clearRespCode() {
         bitField0_ = (bitField0_ & ~0x00000002);
-        userName_ = getDefaultInstance().getUserName();
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>required string userName = 2;</code>
-       */
-      public Builder setUserNameBytes(
-          com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00000002;
-        userName_ = value;
+        respCode_ = 0;
         onChanged();
         return this;
       }
 
-      // optional string productName = 3;
-      private java.lang.Object productName_ = "";
+      // optional string desc = 3;
+      private java.lang.Object desc_ = "";
       /**
-       * <code>optional string productName = 3;</code>
+       * <code>optional string desc = 3;</code>
        */
-      public boolean hasProductName() {
+      public boolean hasDesc() {
         return ((bitField0_ & 0x00000004) == 0x00000004);
       }
       /**
-       * <code>optional string productName = 3;</code>
+       * <code>optional string desc = 3;</code>
        */
-      public java.lang.String getProductName() {
-        java.lang.Object ref = productName_;
+      public java.lang.String getDesc() {
+        java.lang.Object ref = desc_;
         if (!(ref instanceof java.lang.String)) {
           java.lang.String s = ((com.google.protobuf.ByteString) ref)
               .toStringUtf8();
-          productName_ = s;
+          desc_ = s;
           return s;
         } else {
           return (java.lang.String) ref;
         }
       }
       /**
-       * <code>optional string productName = 3;</code>
+       * <code>optional string desc = 3;</code>
        */
       public com.google.protobuf.ByteString
-          getProductNameBytes() {
-        java.lang.Object ref = productName_;
+          getDescBytes() {
+        java.lang.Object ref = desc_;
         if (ref instanceof String) {
           com.google.protobuf.ByteString b = 
               com.google.protobuf.ByteString.copyFromUtf8(
                   (java.lang.String) ref);
-          productName_ = b;
+          desc_ = b;
           return b;
         } else {
           return (com.google.protobuf.ByteString) ref;
         }
       }
       /**
-       * <code>optional string productName = 3;</code>
+       * <code>optional string desc = 3;</code>
        */
-      public Builder setProductName(
+      public Builder setDesc(
           java.lang.String value) {
         if (value == null) {
     throw new NullPointerException();
   }
   bitField0_ |= 0x00000004;
-        productName_ = value;
+        desc_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>optional string productName = 3;</code>
+       * <code>optional string desc = 3;</code>
        */
-      public Builder clearProductName() {
+      public Builder clearDesc() {
         bitField0_ = (bitField0_ & ~0x00000004);
-        productName_ = getDefaultInstance().getProductName();
+        desc_ = getDefaultInstance().getDesc();
         onChanged();
         return this;
       }
       /**
-       * <code>optional string productName = 3;</code>
+       * <code>optional string desc = 3;</code>
        */
-      public Builder setProductNameBytes(
+      public Builder setDescBytes(
           com.google.protobuf.ByteString value) {
         if (value == null) {
     throw new NullPointerException();
   }
   bitField0_ |= 0x00000004;
-        productName_ = value;
-        onChanged();
-        return this;
-      }
-
-      // repeated string address = 4;
-      private com.google.protobuf.LazyStringList address_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-      private void ensureAddressIsMutable() {
-        if (!((bitField0_ & 0x00000008) == 0x00000008)) {
-          address_ = new com.google.protobuf.LazyStringArrayList(address_);
-          bitField0_ |= 0x00000008;
-         }
-      }
-      /**
-       * <code>repeated string address = 4;</code>
-       */
-      public java.util.List<java.lang.String>
-          getAddressList() {
-        return java.util.Collections.unmodifiableList(address_);
-      }
-      /**
-       * <code>repeated string address = 4;</code>
-       */
-      public int getAddressCount() {
-        return address_.size();
-      }
-      /**
-       * <code>repeated string address = 4;</code>
-       */
-      public java.lang.String getAddress(int index) {
-        return address_.get(index);
-      }
-      /**
-       * <code>repeated string address = 4;</code>
-       */
-      public com.google.protobuf.ByteString
-          getAddressBytes(int index) {
-        return address_.getByteString(index);
-      }
-      /**
-       * <code>repeated string address = 4;</code>
-       */
-      public Builder setAddress(
-          int index, java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureAddressIsMutable();
-        address_.set(index, value);
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>repeated string address = 4;</code>
-       */
-      public Builder addAddress(
-          java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureAddressIsMutable();
-        address_.add(value);
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>repeated string address = 4;</code>
-       */
-      public Builder addAllAddress(
-          java.lang.Iterable<java.lang.String> values) {
-        ensureAddressIsMutable();
-        super.addAll(values, address_);
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>repeated string address = 4;</code>
-       */
-      public Builder clearAddress() {
-        address_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-        bitField0_ = (bitField0_ & ~0x00000008);
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>repeated string address = 4;</code>
-       */
-      public Builder addAddressBytes(
-          com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureAddressIsMutable();
-        address_.add(value);
+        desc_ = value;
         onChanged();
         return this;
       }
@@ -931,11 +671,10 @@ public final class SubscribeRespProto {
       descriptor;
   static {
     java.lang.String[] descriptorData = {
-      "\n\023SubscribeResp.proto\022\005netty\"Y\n\rSubscrib" +
-      "eResp\022\020\n\010subReqId\030\001 \002(\005\022\020\n\010userName\030\002 \002(" +
-      "\t\022\023\n\013productName\030\003 \001(\t\022\017\n\007address\030\004 \003(\tB" +
-      ";\n%com.change.hippo.netty.codec.protobuf" +
-      "B\022SubscribeRespProto"
+      "\n\023SubscribeResp.proto\022\005netty\"A\n\rSubscrib" +
+      "eResp\022\020\n\010subReqId\030\001 \002(\005\022\020\n\010respCode\030\002 \002(" +
+      "\005\022\014\n\004desc\030\003 \001(\tB;\n%com.change.hippo.nett" +
+      "y.codec.protobufB\022SubscribeRespProto"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
       new com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner() {
@@ -947,7 +686,7 @@ public final class SubscribeRespProto {
           internal_static_netty_SubscribeResp_fieldAccessorTable = new
             com.google.protobuf.GeneratedMessage.FieldAccessorTable(
               internal_static_netty_SubscribeResp_descriptor,
-              new java.lang.String[] { "SubReqId", "UserName", "ProductName", "Address", });
+              new java.lang.String[] { "SubReqId", "RespCode", "Desc", });
           return null;
         }
       };
