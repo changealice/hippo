@@ -8,5 +8,5 @@ package com.change.hippo.netty.protocol.netty;
 public class NettyConstant {
     public static final String REMOTE_IP ="127.0.0.1" ;
     public static final int PORT = 28090;
-    public static final int READ_TIMEOUT = 50000;
+    public static final int READ_TIMEOUT = 50;
 }

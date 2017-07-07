@@ -10,6 +10,7 @@ import java.util.concurrent.ConcurrentHashMap;
 
 import io.netty.channel.ChannelHandlerAdapter;
 import io.netty.channel.ChannelHandlerContext;
+import io.netty.channel.ChannelPromise;
 
 /**
  * User: change.long@99bill.com
@@ -27,7 +28,7 @@ public class LoginAuthRespHandler extends ChannelHandlerAdapter {
         if (null != message && message.getHeader().getType() == MessageType.LOGIN_REQ.value()) {
 
             String nodeIndex = ctx.channel().remoteAddress().toString();
-            NettyMessage loginResp = null;
+            NettyMessage loginResp;
             // 重复登陆，拒绝
             if (nodeCheck.containsKey(nodeIndex)) {
                 loginResp = buildResponse((byte) -1);
@@ -62,6 +63,12 @@ public class LoginAuthRespHandler extends ChannelHandlerAdapter {
         nodeCheck.remove(ctx.channel().remoteAddress().toString());
         ctx.close();
         ctx.fireExceptionCaught(cause);
+    }
+
+    @Override
+    public void disconnect(ChannelHandlerContext ctx, ChannelPromise promise) throws Exception {
+        super.disconnect(ctx, promise);
+        nodeCheck.remove(ctx.channel().remoteAddress().toString());
     }
 
     private NettyMessage buildResponse(byte result) {

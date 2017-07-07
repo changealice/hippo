@@ -27,6 +27,8 @@ public class NettyClient {
 
 
     private ScheduledExecutorService executor = Executors.newScheduledThreadPool(1);
+    //共享客户端连接池，不然会出现内存线程池泄露
+    private NioEventLoopGroup workGroup = new NioEventLoopGroup();
 
     public static void main(String[] args) {
         new NettyClient().connect(NettyConstant.REMOTE_IP, NettyConstant.PORT);
@@ -34,7 +36,7 @@ public class NettyClient {
 
     private void connect(String ip, int port) {
 
-        NioEventLoopGroup workGroup = new NioEventLoopGroup();
+
         Bootstrap bootstrap = new Bootstrap();
 
         bootstrap.group(workGroup)
@@ -55,7 +57,7 @@ public class NettyClient {
         try {
             ChannelFuture f = bootstrap.connect(ip, port).sync();
             f.channel().closeFuture().sync();
-        } catch (InterruptedException e) {
+        } catch (Exception e) {
             e.printStackTrace();
         } finally {
             executor.execute(new Runnable() {
@@ -66,7 +68,11 @@ public class NettyClient {
                     } catch (InterruptedException e) {
                         e.printStackTrace();
                     }
-                    connect(NettyConstant.REMOTE_IP, NettyConstant.PORT);
+                    try {
+                        connect(NettyConstant.REMOTE_IP, NettyConstant.PORT);
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
                 }
             });
         }

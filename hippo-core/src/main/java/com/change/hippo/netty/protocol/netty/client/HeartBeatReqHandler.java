@@ -33,8 +33,9 @@ public class HeartBeatReqHandler extends ChannelHandlerAdapter {
                 && message.getHeader().getType() == MessageType.HEARTBEAT_RESP
                 .value()) {
             System.out.println("Client receive server heart beat message : ---> " + message);
-        } else
+        } else {
             ctx.fireChannelRead(msg);
+        }
     }
 
     @Override
@@ -51,8 +52,8 @@ public class HeartBeatReqHandler extends ChannelHandlerAdapter {
     public class HeartBeatTask implements Runnable {
         private final ChannelHandlerContext ctx;
 
-        public HeartBeatTask(ChannelHandlerContext ctx) {
-            this.ctx =  ctx;
+        HeartBeatTask(ChannelHandlerContext ctx) {
+            this.ctx = ctx;
         }
 
         @Override
