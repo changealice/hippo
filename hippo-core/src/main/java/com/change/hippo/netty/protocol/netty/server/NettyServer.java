@@ -12,6 +12,8 @@ import io.netty.channel.ChannelPipeline;
 import io.netty.channel.nio.NioEventLoopGroup;
 import io.netty.channel.socket.SocketChannel;
 import io.netty.channel.socket.nio.NioServerSocketChannel;
+import io.netty.handler.logging.LogLevel;
+import io.netty.handler.logging.LoggingHandler;
 import io.netty.handler.timeout.ReadTimeoutHandler;
 
 /**
@@ -42,6 +44,7 @@ public class NettyServer {
                             pipeline.addLast("readTimeoutHandler", new ReadTimeoutHandler(NettyConstant.READ_TIMEOUT));
                             pipeline.addLast(new LoginAuthRespHandler());
                             pipeline.addLast(new HeartBeatRespHandler());
+                            pipeline.addLast(new LoggingHandler(LogLevel.INFO));
                         }
                     });
 
