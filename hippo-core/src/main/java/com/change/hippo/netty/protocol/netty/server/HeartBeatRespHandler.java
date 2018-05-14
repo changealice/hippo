@@ -18,9 +18,9 @@ public class HeartBeatRespHandler extends ChannelHandlerAdapter {
         NettyMessage message = (NettyMessage) msg;
         // 返回心跳应答消息
         if (null != message && message.getHeader().getType() == MessageType.HEARTBEAT_REQ.value()) {
-            System.out.println("Receive client heart beat message :" + message);
+            System.out.println(Thread.currentThread().getName() + "Receive client heart beat message :" + message);
             NettyMessage heartBeat = buildHeartBeat();
-            System.out.println("Send heart beat response message to client :" + heartBeat);
+            System.out.println(Thread.currentThread().getName() + "Send heart beat response message to client :" + heartBeat);
             ctx.writeAndFlush(heartBeat);
         } else {
             ctx.fireChannelRead(msg);
