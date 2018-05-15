@@ -5,26 +5,35 @@ loid认证基础入口
  */
 import (
 	"net/http"
-	"log"
 	"change.com/auth/domain"
-	loidAuthImpl "change.com/auth/service/impl"
+	"change.com/auth/service/impl"
 	"io/ioutil"
 	"encoding/json"
+	"github.com/astaxie/beego/logs"
 )
 
 const (
-	ALLOW_METHOD = "POST"
+	AllowMethod    = "POST"
 	ListenAndServe = ":19090"
-	LOID_AUTH = "/loidAuth"
+	LoidAuth       = "/loidAuth"
+	RID            = "rid"
 )
 
+func init() {
+	logs.SetLogger(logs.AdapterFile,`{"filename":"/usr/local/applogs/auth-go/auth-go.log","level":7,"daily":true,"maxdays":7,"maxsize":500000000}`)
+	logs.Async()
+	logs.Async(2e4)
+}
+
 func main() {
-	http.HandleFunc(LOID_AUTH, service)
+	//异步启动apollo
+	//go agollo.Start()
+	http.HandleFunc(LoidAuth, service)
 	address := ListenAndServe
 	err := http.ListenAndServe(address, nil)
-	log.Println("Starting server on address", address)
+	logs.Info("Starting server on address %s", address)
 	if err != nil {
-		log.Fatal("ListenAndServe: ", err)
+		logs.Error("ListenAndServe: ", err)
 		panic(err)
 	}
 
@@ -32,7 +41,7 @@ func main() {
 
 func service(w http.ResponseWriter, r *http.Request) {
 	m := r.Method
-	if m == ALLOW_METHOD {
+	if m == AllowMethod {
 		loidAuth(w, r)
 		return
 	}
@@ -40,7 +49,7 @@ func service(w http.ResponseWriter, r *http.Request) {
 	return
 }
 
-var impl = loidAuthImpl.UnifyServiceImpl{}
+var unifyAuthService = &impl.UnifyAuthServiceImpl{}
 
 func loidAuth(w http.ResponseWriter, r *http.Request) {
 	// Read body
@@ -60,7 +69,7 @@ func loidAuth(w http.ResponseWriter, r *http.Request) {
 	}
 	w.Header().Set("Content-Type", "application/json;charset=UTF-8")
 
-	rp := impl.LoidAuth(request)
+	rp := unifyAuthService.LoidAuth(request)
 	re, err := json.Marshal(rp)
 	if err != nil {
 		http.Error(w, err.Error(), 500)

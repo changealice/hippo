@@ -1,5 +1,6 @@
 package domain
 
+
 //升级信息
 type LastInfos struct {
 	Last_upgrade_status  int

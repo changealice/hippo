@@ -2,7 +2,7 @@ package proxy
 
 import (
 	"change.com/auth/domain"
-	"log"
+	"github.com/astaxie/beego/logs"
 )
 
 type LoidCacheProxy struct {
@@ -13,17 +13,17 @@ var userCenterProxy = UserCenterProxy{}
 
 func (proxy LoidCacheProxy) LoidAuth(request domain.UnifyAuthRequest) domain.UnifyAuthResponse {
 	loid := request.Loid
-	loidCacheExists := loidAuthCenterCacheProxy.LoidExists(loid)
+	loidCacheExists,loidHash := loidAuthCenterCacheProxy.LoidExists(loid)
 	//认证系统缓存用户存在直接返回
-	if (loidCacheExists) {
-		log.Printf("Unify loid=%v cache hit,authenticate successfully\n", loid);
+	if loidCacheExists {
+		logs.Info("Unify loid=%v cache hit,authenticate successfully\n", loid);
 		return instantsAuthSuccessfully();
 	}
 	userCenterLoidExists := userCenterProxy.LoidExists(loid)
 	//用户中心存在返回认证成功
-	if (userCenterLoidExists) {
-		log.Printf("loid=%v userCenter hit,authenticate successfully", loid);
-		loidAuthCenterCacheProxy.loidPut(loid);
+	if userCenterLoidExists {
+		logs.Info("loid=%v userCenter hit,authenticate successfully", loid);
+		loidAuthCenterCacheProxy.loidPut(loid,loidHash);
 		return instantsAuthSuccessfully();
 	}
 

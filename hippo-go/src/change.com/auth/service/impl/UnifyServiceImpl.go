@@ -2,17 +2,20 @@ package impl
 
 import (
 	"change.com/auth/domain"
-	"log"
 	"change.com/auth/proxy"
+	"github.com/astaxie/beego/logs"
+	"change.com/auth/processor"
 )
 
-type UnifyServiceImpl struct {
+type UnifyAuthServiceImpl struct {
 }
 
-var loidAuthServiceProxy = proxy.LoidCacheProxy{}
-//UnifyServiceImpl 实现光号口认证
-func (h UnifyServiceImpl) LoidAuth(request domain.UnifyAuthRequest) domain.UnifyAuthResponse {
-	log.Printf("Invoking with request=%v\n", request)
+var loidAuthServiceProxy = &proxy.LoidCacheProxy{}
+/**
+ **UnifyAuthServiceImpl 实现光号口认证
+ */
+func (h UnifyAuthServiceImpl) LoidAuth(request domain.UnifyAuthRequest) domain.UnifyAuthResponse {
+	logs.Info("Invoking with request=%v\n", request)
 
 	var response domain.UnifyAuthResponse
 	response = validate(request)
@@ -29,9 +32,9 @@ func (h UnifyServiceImpl) LoidAuth(request domain.UnifyAuthRequest) domain.Unify
 	postHandle(request, response);
 
 	//如果不成功直接返回
-	if (&response != nil) {
+	if &response != nil {
 		copyProperties(request, response);
-		if (response.Code != "200000") {
+		if response.Code != "200000" {
 			return response;
 		}
 	}
@@ -50,11 +53,25 @@ func afterCompletion(request domain.UnifyAuthRequest, response domain.UnifyAuthR
 func copyProperties(request domain.UnifyAuthRequest, response domain.UnifyAuthResponse) {
 
 }
-func postHandle(request domain.UnifyAuthRequest, response domain.UnifyAuthResponse) {
 
+var preProcessors = [] processor.CommonProcessor{
+	&processor.RequestParamProcessor{},
+	&processor.CheckBlackListByLoidProcessor{},
+	&processor.CheckIpRateProcessor{},
+	&processor.CheckDeviceUpgradeProcessor{},
+}
+
+func postHandle(request domain.UnifyAuthRequest, response domain.UnifyAuthResponse) {
 }
 
 func preHandle(request domain.UnifyAuthRequest) domain.UnifyAuthResponse {
+
+	for index := 0; index < len(preProcessors); index++ {
+		authenticate := preProcessors[index].Authenticate(request)
+		if &authenticate != nil && authenticate.Code != "200000" {
+			return authenticate;
+		}
+	}
 	return domain.UnifyAuthResponse{Code: "200000"}
 }
 

@@ -1,0 +1,5 @@
+2018/05/15 00:05:31.078 [I] Invoking with request={{d7bd582b-94d9-4e38-b392-b3c9ed0fe16222} 578818048 CKT766800000009 375 1.1.4 Hisense  true HBE8220N-GW-HBMT0 00:11:22:33:44:55 Reboot {1 1.2.9 0 1213}}
+
+2018/05/15 00:05:31.079 [I] getCache loid=578818048,key=35,result=true
+2018/05/15 00:05:31.079 [I] Unify loid=578818048 cache hit,authenticate successfully
+
