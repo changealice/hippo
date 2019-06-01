@@ -2,6 +2,7 @@ package mymath
 
 const hello string = "hello world"
 const Hello string = "Hello world"
+
 func Sqrt(x float64) float64 {
 	z := 0.0
 	for i := 0; i < 1000; i++ {

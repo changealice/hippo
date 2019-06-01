@@ -36,6 +36,7 @@
         <module>hippo-spring-boot-sidebar</module>
         <module>hippo-config-client</module>
         <module>hippo-spring-boot-kotlin</module>
+        <module>springboot2-demo</module>
     </modules>
 
     <parent>

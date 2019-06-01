@@ -1,6 +1,5 @@
 package domain
 
-
 //升级信息
 type LastInfos struct {
 	Last_upgrade_status  int
@@ -16,11 +15,12 @@ type BaseRequest struct {
 
 /**
 光口号认证请求类
- */
+*/
 type UnifyAuthRequest struct {
-	BaseRequest //匿名字段
+	BaseRequest        //匿名字段
 	Loid               string
 	Sn                 string
+	Ip_address         string
 	Duration           string
 	Fw_version         string
 	Vendor             string

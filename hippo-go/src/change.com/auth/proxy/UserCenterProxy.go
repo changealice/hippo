@@ -1,27 +1,27 @@
 package proxy
 
 import (
-	"time"
-	"net/http"
-	"fmt"
-	"io/ioutil"
 	"encoding/json"
-	"net"
+	"fmt"
 	"github.com/astaxie/beego/logs"
+	"io/ioutil"
+	"net"
+	"net/http"
+	"time"
 )
 
 type UserCenterProxy struct {
 }
 
 type UserInfo struct {
-	LoId string;
+	LoId string
 }
 
 type UserCenterResponse struct {
-	Msg  string;
-	Code string;
-	Data UserInfo;
-	Ok   bool;
+	Msg  string
+	Code string
+	Data UserInfo
+	Ok   bool
 }
 
 var tr = &http.Transport{
@@ -40,7 +40,7 @@ func (proxy UserCenterProxy) LoidExists(loid string) bool {
 	client := &http.Client{Transport: tr}
 	resp, err := client.Get(fmt.Sprintf("http://192.168.0.179:30015/data/api/auth/findCustomerByLoid?loid=%v", loid))
 	if err != nil {
-		logs.Error("用户中心系统：loid=%v,ex={}", loid, err);
+		logs.Error("用户中心系统：loid=%v,ex={}", loid, err)
 		return false
 	}
 	defer resp.Body.Close()

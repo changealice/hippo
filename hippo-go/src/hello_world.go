@@ -1,12 +1,12 @@
 package main
 
 import (
+	"errors"
 	"fmt"
 	. "fmt"
-	"mymath"
-	"errors"
-	"math/rand"
 	_ "github.com/ziutek/mymysql/godrv"
+	"math/rand"
+	"mymath"
 )
 
 var isActive bool
@@ -21,7 +21,7 @@ func main() {
 	fmt.Printf("Hello, world or 你好，世界 or καλημ ́ρα κóσμ or こんにちはせかい\n")
 	fmt.Printf("Hello, world.  Sqrt(2) = %v\n", mymath.Sqrt(2))
 	fmt.Printf("Hello, world.  Sqrt Hello = %v\n", mymath.Hello)
-	fmt.Println("My favorite number is",rand.Intn(10))
+	fmt.Println("My favorite number is", rand.Intn(10))
 	const i = 10000
 
 	var available bool // 一般声明
@@ -46,7 +46,7 @@ func main() {
 	fmt.Printf("const sys=%v\n", sys)
 	fmt.Printf("const pi=%v\n", pi)
 
-	var array [10] int
+	var array [10]int
 	array[1] = 1
 	array[9] = 1
 	var sArray = [10]string{"123", "456", "678"}
@@ -89,12 +89,11 @@ func main() {
 	}
 	fmt.Println(abs(-10))
 
-
 	x := 3
 
-	fmt.Println("x = ", x)  // 应该输出 "x = 3"
+	fmt.Println("x = ", x) // 应该输出 "x = 3"
 
-	x1 := add1(&x)  // 调用 add1(&x) 传x的地址
+	x1 := add1(&x) // 调用 add1(&x) 传x的地址
 
 	fmt.Println("x+1 = ", x1) // 应该输出 "x+1 = 4"
 	fmt.Println("x = ", x)    // 应该输出 "x = 4"
@@ -105,7 +104,6 @@ func main() {
 	fmt.Println()
 	Println(".println")
 
-
 }
 func computedValue() int {
 	return 9
@@ -113,17 +111,17 @@ func computedValue() int {
 
 func abs(a int) int {
 	if a > 0 {
-		return a;
+		return a
 	}
 	return -a
 }
 
 //简单的一个函数，实现了参数+1的操作
 func add1(a *int) int { // 请注意，
-	*a = *a+1 // 修改了a的值
-	return *a // 返回新值
+	*a = *a + 1 // 修改了a的值
+	return *a   // 返回新值
 }
 
-func readWrite() bool  {
-	return true;
+func readWrite() bool {
+	return true
 }

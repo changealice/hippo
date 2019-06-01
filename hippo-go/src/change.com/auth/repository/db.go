@@ -1,23 +1,24 @@
 package main
 
 import (
-	_ "github.com/mattn/go-sqlite3"
-	_ "github.com/go-sql-driver/mysql"
-	"github.com/astaxie/beego/orm"
 	"database/sql"
 	"fmt"
+	"github.com/astaxie/beego/orm"
+	_ "github.com/go-sql-driver/mysql"
+	_ "github.com/mattn/go-sqlite3"
 	"time"
 )
+
 // Model Struct
 type SourceMapping struct {
-	PWID   int64
-	SysFrom string
-	AccountID string
+	PWID       int64
+	SysFrom    string
+	AccountID  string
 	CreateTime time.Time
 	UpdateTime time.Time
 }
 
-func init()  {
+func init() {
 	// 设置默认数据库
 	orm.RegisterDataBase("default", "mysql", "root@tcp(localhost:3306)/uap?charset=utf8", 30)
 
@@ -34,8 +35,6 @@ func main() {
 	checkErr(err)
 
 	fmt.Println(db)
-
-
 
 	stmt, err := db.Prepare("INSERT INTO uap.T_SourceMapping (PWID, SysFrom, AccountID, CreateTime, UpdateTime) VALUES(?, ?, ?, ?, ?)")
 	checkErr(err)

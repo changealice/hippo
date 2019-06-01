@@ -1,12 +1,12 @@
 package proxy
 
 import (
+	"change.com/auth/redis"
+	"encoding/json"
+	"fmt"
+	"github.com/astaxie/beego/logs"
 	"hash/crc32"
 	"io"
-	"change.com/auth/redis"
-	"fmt"
-	"encoding/json"
-	"github.com/astaxie/beego/logs"
 )
 
 const (
@@ -28,10 +28,10 @@ func (proxy LoidAuthCenterProxy) LoidExists(loid string) (bool, string) {
 	hash := fmt.Sprintf(LOID, loidMod)
 	result, e := redis.HExists(hash, loid)
 	if e != nil {
-		return result, hash;
+		return result, hash
 	}
-	logs.Info("getCache loid=%v,key=%v,result=%v", loid, loidMod, result);
-	return result, hash;
+	logs.Info("getCache loid=%v,key=%v,result=%v", loid, loidMod, result)
+	return result, hash
 }
 func (proxy LoidAuthCenterProxy) loidPut(loid string, hash string) {
 	var cache = LoidCache{Loid: loid}

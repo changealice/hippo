@@ -9,8 +9,8 @@ type AuthResult struct {
 }
 
 /**
- 认证返回
- */
+认证返回
+*/
 type UnifyAuthResponse struct {
 	Id                        string `json:"id,omitempty"`
 	Code                      string `json:"code,omitempty"`

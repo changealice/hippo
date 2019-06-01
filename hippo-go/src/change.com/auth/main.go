@@ -2,14 +2,17 @@ package main
 
 /**
 loid认证基础入口
- */
+*/
 import (
-	"net/http"
 	"change.com/auth/domain"
+	"change.com/auth/realip"
+	_ "change.com/auth/script"
 	"change.com/auth/service/impl"
-	"io/ioutil"
+	"context"
 	"encoding/json"
 	"github.com/astaxie/beego/logs"
+	"io/ioutil"
+	"net/http"
 )
 
 const (
@@ -20,7 +23,9 @@ const (
 )
 
 func init() {
-	logs.SetLogger(logs.AdapterFile,`{"filename":"/usr/local/applogs/auth-go/auth-go.log","level":7,"daily":true,"maxdays":7,"maxsize":500000000}`)
+	logs.SetLogger(
+		logs.AdapterFile,
+		`{"filename":"/usr/local/applogs/auth-go/auth-go.log","level":7,"daily":true,"maxdays":7,"maxsize":500000000}`)
 	logs.Async()
 	logs.Async(2e4)
 }
@@ -69,7 +74,11 @@ func loidAuth(w http.ResponseWriter, r *http.Request) {
 	}
 	w.Header().Set("Content-Type", "application/json;charset=UTF-8")
 
-	rp := unifyAuthService.LoidAuth(request)
+	//处理ip
+	ip := realip.FromRequest(r)
+	ctx := context.WithValue(context.Background(), "ip", ip)
+
+	rp := unifyAuthService.LoidAuth(request, ctx)
 	re, err := json.Marshal(rp)
 	if err != nil {
 		http.Error(w, err.Error(), 500)

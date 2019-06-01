@@ -1,9 +1,9 @@
 package main
 
 import (
+	"fmt"
 	"github.com/astaxie/beego/orm"
 	_ "github.com/go-sql-driver/mysql" // 导入数据库驱动
-	"fmt"
 )
 
 type User struct {

@@ -1,14 +1,14 @@
 package main
 
 import (
-	"math"
 	"fmt"
+	"math"
 )
+
 //定义一个接口
 type Vertx interface {
 	area() float64
 }
-
 
 //定义一个 矩形对象
 type Rectangle struct {

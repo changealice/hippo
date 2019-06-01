@@ -1,9 +1,9 @@
 package redis
 
 import (
-	"github.com/go-redis/redis"
 	"fmt"
 	"github.com/astaxie/beego/logs"
+	"github.com/go-redis/redis"
 	"os"
 	"time"
 )
@@ -41,7 +41,7 @@ func init() {
 }
 
 func Get(key string) (string, error) {
-	data, err := client.Get(key).Result();
+	data, err := client.Get(key).Result()
 	if err != nil {
 		return data, fmt.Errorf("error get key %s: %v", key, err)
 	}
@@ -49,7 +49,7 @@ func Get(key string) (string, error) {
 }
 
 func HExists(key string, field string) (bool, error) {
-	data, err := client.HExists(key, field).Result();
+	data, err := client.HExists(key, field).Result()
 	if err != nil {
 		return data, fmt.Errorf("error get key %s: %v", key, err)
 	}
@@ -57,7 +57,7 @@ func HExists(key string, field string) (bool, error) {
 }
 
 func Exists(key string) (int64, error) {
-	data, err := client.Exists(key).Result();
+	data, err := client.Exists(key).Result()
 	if err != nil {
 		return data, fmt.Errorf("error get key %s: %v", key, err)
 	}
