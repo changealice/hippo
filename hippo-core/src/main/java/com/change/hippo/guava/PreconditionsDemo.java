@@ -4,6 +4,9 @@ import com.google.common.base.Optional;
 import com.google.common.base.Preconditions;
 import com.google.common.base.Throwables;
 
+/**
+ * 断言测试
+ */
 public class PreconditionsDemo {
 
     public static void main(String[] args) {
