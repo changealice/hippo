@@ -212,6 +212,11 @@
             <version>1.0.4.RELEASE</version>
         </dependency>
 
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-sleuth</artifactId>
+        </dependency>
+
     </dependencies>
 
     <build>
