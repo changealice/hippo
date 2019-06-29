@@ -36,14 +36,34 @@ public class JWTToken {
             "4T24RxGDLM5sG8+ofhsmCgUYiJFj8e9BgkHu2BQ4pqjS0/RJx/Kehb+Qd9oz+vXJ\n" +
             "fAsAH7KcQycQCw==";
 
-    public static String getToken(String uid, int exp) throws Exception {
-        final Date date = new Date(System.currentTimeMillis() + 1000 * exp);
+    private static PublicKey publicKey;
+    private static PrivateKey privateKey;
 
-        byte[] keyBytes = (new BASE64Decoder()).decodeBuffer(PRIVATE_KEY);
-        PKCS8EncodedKeySpec keySpec = new PKCS8EncodedKeySpec(keyBytes);
-        KeyFactory keyFactory = KeyFactory.getInstance("RSA");
-        PrivateKey privateKey = keyFactory.generatePrivate(keySpec);
+    static {
+        // 生成签名公钥
 
+        try {
+            byte[] keyBytes = (new BASE64Decoder()).decodeBuffer(PUBLIC_KEY);
+            X509EncodedKeySpec keySpec = new X509EncodedKeySpec(keyBytes);
+            KeyFactory keyFactory = KeyFactory.getInstance("RSA");
+            publicKey = keyFactory.generatePublic(keySpec);
+        } catch (Exception e) {
+        }
+
+
+        try {
+            byte[] keyBytes = (new BASE64Decoder()).decodeBuffer(PRIVATE_KEY);
+            PKCS8EncodedKeySpec keySpec = new PKCS8EncodedKeySpec(keyBytes);
+            KeyFactory keyFactory = KeyFactory.getInstance("RSA");
+            privateKey = keyFactory.generatePrivate(keySpec);
+        } catch (Exception e) {
+
+        }
+
+    }
+
+    public static String getToken(String uid, int expire) {
+        final Date date = new Date(System.currentTimeMillis() + 1000 * expire);
         return Jwts.builder().setSubject(uid)
                 .setExpiration(date)
                 .signWith(SignatureAlgorithm.RS512, privateKey)
@@ -52,13 +72,6 @@ public class JWTToken {
 
     public static JWTResult checkToken(String token) {
         try {
-
-            // 生成签名公钥
-            byte[] keyBytes = (new BASE64Decoder()).decodeBuffer(PUBLIC_KEY);
-            X509EncodedKeySpec keySpec = new X509EncodedKeySpec(keyBytes);
-            KeyFactory keyFactory = KeyFactory.getInstance("RSA");
-            PublicKey publicKey = keyFactory.generatePublic(keySpec);
-
             final Claims claims = Jwts.parser()
                     .setSigningKey(publicKey)
                     .parseClaimsJws(token)
