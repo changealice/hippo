@@ -1,0 +1,3 @@
+org.springframework.context.ApplicationListener=com.change.hippo.sbdemo.event.ApplicationPreparedEventListener,\
+  com.change.hippo.sbdemo.event.ApplicationReadyEventListener,\
+  com.change.hippo.sbdemo.event.ApplicationStartedEventListener

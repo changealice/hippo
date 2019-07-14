@@ -2,6 +2,7 @@ package com.change.hippo.sbdemo;
 
 import com.battcn.swagger.annotation.EnableSwagger2Doc;
 import com.change.hippo.sbdemo.properties.MyProperties1;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -16,6 +17,7 @@ import java.util.Arrays;
 //import com.change.hippo.sbdemo.properties.MyProperties1;
 
 
+@Slf4j
 @EnableSwagger2Doc
 //@RestController
 @SpringBootApplication
@@ -44,6 +46,7 @@ public class SbDemoApplication {
 
     @Bean
     public CommandLineRunner commandLineRunner(ApplicationContext ctx) {
+        log.info("Loading data...");
         return args -> {
             String[] beanDefinitionNames = ctx.getBeanDefinitionNames();
             Arrays.stream(beanDefinitionNames).forEach(System.out::println);
