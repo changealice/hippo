@@ -1,6 +1,6 @@
 package com.change.hippo.sbdemo;
 
-import com.change.hippo.sbdemo.entity.User;
+import com.change.hippo.sbdemo.domain.User;
 import com.change.hippo.sbdemo.properties.MyProperties1;
 import org.junit.Before;
 import org.junit.Test;

@@ -1,7 +1,8 @@
-package com.change.hippo.sbdemo.ctrl;
+package com.change.hippo.sbdemo.web;
 
 import com.battcn.swagger.properties.ApiDataType;
 import com.battcn.swagger.properties.ApiParamType;
+import com.change.hippo.sbdemo.domain.User;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiImplicitParam;
 import io.swagger.annotations.ApiImplicitParams;
@@ -9,7 +10,6 @@ import io.swagger.annotations.ApiOperation;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.web.bind.annotation.*;
-import com.change.hippo.sbdemo.entity.User;
 
 import java.util.List;
 

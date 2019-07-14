@@ -1,19 +1,19 @@
 package com.change.hippo.sbdemo;
 
 import com.battcn.swagger.annotation.EnableSwagger2Doc;
-//import com.change.hippo.sbdemo.properties.MyProperties1;
-import io.swagger.annotations.Api;
-import io.swagger.annotations.ApiOperation;
+import com.change.hippo.sbdemo.properties.MyProperties1;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.context.properties.bind.Bindable;
+import org.springframework.boot.context.properties.bind.Binder;
 import org.springframework.context.ApplicationContext;
+import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.context.annotation.Bean;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RestController;
 
-import javax.annotation.Resource;
 import java.util.Arrays;
+
+//import com.change.hippo.sbdemo.properties.MyProperties1;
 
 
 @EnableSwagger2Doc
@@ -26,7 +26,14 @@ public class SbDemoApplication {
 //    private MyProperties1 myProperties1;
 
     public static void main(String[] args) {
-        SpringApplication.run(SbDemoApplication.class, args);
+        final ConfigurableApplicationContext context = SpringApplication.run(SbDemoApplication.class, args);
+
+        Binder binder = Binder.get(context.getEnvironment());
+
+        final MyProperties1 my1 = binder.bind("my1", Bindable.of(MyProperties1.class)).get();
+
+        System.out.println(my1);
+
     }
 
 //    @GetMapping("/demo1")

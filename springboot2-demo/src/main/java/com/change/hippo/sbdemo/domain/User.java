@@ -1,4 +1,4 @@
-package com.change.hippo.sbdemo.entity;
+package com.change.hippo.sbdemo.domain;
 
 
 import io.swagger.annotations.ApiModel;
